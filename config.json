@@ -1,0 +1,99 @@
+{
+  "categories": [
+    { "id": "pc", "name": "노트북·PC", "icon": "💻", "hue": 220,
+      "keywords": ["노트북", "모니터", "그래픽카드", "SSD", "무선 마우스", "기계식 키보드"],
+      "match_words": ["PC", "하드웨어", "컴퓨터", "노트북", "모니터", "SSD", "그래픽", "RTX", "라데온", "CPU", "라이젠", "인텔", "메모리", "램", "키보드", "마우스", "NAS", "공유기"] },
+    { "id": "mobile", "name": "스마트폰·태블릿", "icon": "📱", "hue": 198,
+      "keywords": ["갤럭시 S25", "아이폰 17", "갤럭시탭", "아이패드", "보조배터리"],
+      "match_words": ["휴대폰", "스마트폰", "모바일", "갤럭시", "아이폰", "태블릿", "아이패드", "충전기", "보조배터리", "케이블"] },
+    { "id": "audio", "name": "음향·웨어러블", "icon": "🎧", "hue": 262,
+      "keywords": ["무선 이어폰", "노이즈캔슬링 헤드폰", "블루투스 스피커", "스마트워치"],
+      "match_words": ["이어폰", "헤드폰", "헤드셋", "스피커", "버즈", "에어팟", "워치", "A/V", "음향", "사운드바"] },
+    { "id": "appliance", "name": "생활가전", "icon": "🔌", "hue": 172,
+      "keywords": ["무선청소기", "로봇청소기", "에어프라이어", "공기청정기", "제습기"],
+      "match_words": ["가전", "청소기", "에어프라이어", "공기청정", "제습기", "가습기", "TV", "냉장고", "세탁기", "건조기", "전자레인지", "드라이기", "선풍기", "다이슨", "로보락", "식기세척기", "정수기", "비데", "에어컨", "전기밥솥"] },
+    { "id": "game", "name": "게임", "icon": "🎮", "hue": 290,
+      "keywords": ["닌텐도 스위치 2", "PS5", "게임 컨트롤러"],
+      "match_words": ["게임", "S/W", "H/W", "SW/게임", "스위치", "닌텐도", "PS5", "플스", "엑스박스", "XBOX", "컨트롤러", "스팀"] },
+    { "id": "kitchen", "name": "주방·생활", "icon": "🍳", "hue": 32,
+      "keywords": ["프라이팬", "밀폐용기", "커피머신"],
+      "match_words": ["생활", "생활용품", "주방", "프라이팬", "냄비", "세제", "휴지", "물티슈", "샴푸", "치약", "칫솔", "수건", "침구", "베개"] },
+    { "id": "food", "name": "식품", "icon": "🍜", "hue": 10,
+      "keywords": ["생수 2L", "즉석밥", "라면", "커피 캡슐"],
+      "match_words": ["식품", "음식", "먹거리", "생활/식품", "라면", "커피", "음료", "생수", "과자", "고기", "한우", "돼지", "닭", "과일", "쌀", "햇반", "우유", "아이스크림"] },
+    { "id": "fashion", "name": "패션·잡화", "icon": "👟", "hue": 325,
+      "keywords": ["운동화", "패딩", "백팩"],
+      "match_words": ["의류", "패션", "신발", "운동화", "가방", "백팩", "잡화", "패딩", "자켓", "티셔츠"] },
+    { "id": "beauty", "name": "뷰티", "icon": "💄", "hue": 345,
+      "keywords": ["선크림", "토너"],
+      "match_words": ["화장품", "뷰티", "스킨", "로션", "선크림", "토너", "향수", "클렌징"] },
+    { "id": "sports", "name": "스포츠·캠핑", "icon": "⛺", "hue": 138,
+      "keywords": ["캠핑의자", "러닝화"],
+      "match_words": ["스포츠", "레저", "레저용품", "캠핑", "자전거", "등산", "골프", "러닝", "텐트"] }
+  ],
+
+  "sources": {
+    "ppomppu": true,
+    "ppomppu_overseas": false,
+    "ruliweb": true,
+    "coolenjoy": true,
+    "damoang": true,
+    "quasarzone": true,
+    "arcalive": true,
+    "clien": true,
+    "fmkorea": true
+  },
+
+  "community": {
+    "keep_hours": 72,
+    "max_posts": 500,
+    "verify_overseas": false
+  },
+
+  "danawa": {
+    "enabled": true,
+    "min_delay_seconds": 10,
+    "max_verifications_per_run": 15,
+    "max_product_pages_per_run": 20,
+    "products_per_keyword": 6,
+    "keyword_refresh_hours": 24,
+    "keywords_per_run": 4,
+    "recheck_hours": 8,
+    "max_products": 300,
+    "search_cache_hours": 6
+  },
+
+  "pricing": {
+    "min_malls_for_average": 3,
+    "outlier_low": 0.5,
+    "outlier_high": 1.8,
+    "suspicious_rate": 60,
+    "match_min_score": 0.62
+  },
+
+  "run": {
+    "budget_minutes": 12,
+    "default_delay_seconds": 3
+  },
+
+  "storage": {
+    "history_days": 120
+  },
+
+  "alerts": {
+    "threshold": 30,
+    "categories": [],
+    "keywords": [],
+    "keyword_threshold": 15,
+    "max_per_run": 10,
+    "renotify_drop": 3,
+    "remember_days": 14,
+    "min_votes": 0
+  },
+
+  "watch": [],
+
+  "output": {
+    "path": "docs/data/deals.json"
+  }
+}

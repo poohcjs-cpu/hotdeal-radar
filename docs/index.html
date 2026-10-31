@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>핫딜 레이더</title>
+<meta name="description" content="핫딜 커뮤니티 글과 쇼핑몰 가격을 모아, 다른 쇼핑몰 평균가보다 크게 싼 딜만 골라 보여 줘요.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f1f2f5">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0f12">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="핫딜 레이더">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* 레이아웃: 전단지 가격표. 카드마다 오른쪽 절취선 스텁에 '쇼핑몰 평균가 대비 할인율'을 크게 찍는다 */
+  --bg: #f1f2f5;
+  --surface: #ffffff;
+  --ink: #14161b;
+  --muted: #666d7b;
+  --line: #e0e2e8;
+  --sunken: #e8eaee;
+  --accent: #e5321b;
+  --accent-soft: #fde9e6;
+  --sticker: #ffd21f;
+  --sticker-ink: #1e1700;
+  --marker: #ffd21f;
+  --ok: #1a9a5c;
+  --warn: #c77d00;
+  --bad: #d23a2a;
+  --tint-s: 75%;
+  --tint-l: 92%;
+  --font-display: "Black Han Sans", "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e0f12; --surface: #18191e; --ink: #eef0f4; --muted: #9aa0ad; --line: #2a2c33; --sunken: #23252b;
+    --accent: #ff5a3c; --accent-soft: #3a1914; --sticker: #ffd84a; --sticker-ink: #1e1700; --marker: rgba(255, 216, 74, .38);
+    --ok: #3ccf8e; --warn: #f5b13d; --bad: #ff6b5b; --tint-s: 28%; --tint-l: 21%;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e0f12; --surface: #18191e; --ink: #eef0f4; --muted: #9aa0ad; --line: #2a2c33; --sunken: #23252b;
+  --accent: #ff5a3c; --accent-soft: #3a1914; --sticker: #ffd84a; --sticker-ink: #1e1700; --marker: rgba(255, 216, 74, .38);
+  --ok: #3ccf8e; --warn: #f5b13d; --bad: #ff6b5b; --tint-s: 28%; --tint-l: 21%;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; word-break: keep-all; overflow-wrap: anywhere;
+}
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.app { max-width: 1040px; margin: 0 auto; padding: 0 16px calc(108px + env(safe-area-inset-bottom)); }
+
+/* 헤더 */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0 6px; }
+.brand { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+.brand svg { width: 26px; height: 26px; }
+.demo { appearance: none; border: 0; cursor: pointer; background: var(--sticker); color: var(--sticker-ink); font-size: 12px; font-weight: 700; padding: 4px 9px; border-radius: 4px; transform: rotate(-2.5deg); white-space: nowrap; }
+.demo.is-live { background: var(--surface); color: var(--ink); border: 1.5px solid var(--ink); transform: none; font-weight: 600; }
+.demo.is-live::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); margin-right: 6px; vertical-align: 1px; }
+.demo.is-stale::before { background: var(--warn); }
+
+/* 홈 히어로 */
+.hero { padding: 14px 0 6px; display: grid; gap: 10px; }
+.eyebrow { margin: 0; color: var(--muted); font-size: 13px; font-weight: 500; }
+.hero h1 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 8vw, 52px); line-height: 1.14; letter-spacing: -0.015em; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero h1 b { font-weight: 400; background: linear-gradient(transparent 62%, var(--marker) 62%, var(--marker) 92%, transparent 92%); padding: 0 2px; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.linkish {
+  display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; padding: 0; color: var(--ink); font-weight: 600; font-size: 14px;
+  text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; cursor: pointer;
+}
+.newline { display: inline-flex; align-items: center; gap: 8px; border: 0; cursor: pointer; background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+.newline b { color: var(--sticker); font-weight: 700; }
+.newline .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent); }
+.notice { margin: 0; padding: 10px 12px; border-radius: 12px; background: var(--sunken); font-size: 13.5px; }
+.notice.warn { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.notice button { margin-left: 4px; }
+.source-strip { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12.5px; color: var(--muted); }
+.source-strip span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+
+/* 상태 점 */
+.dot-s { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
+.dot-s.ok { background: var(--ok); }
+.dot-s.warn { background: var(--warn); }
+.dot-s.bad { background: var(--bad); }
+.dot-s.off { background: transparent; border: 1.5px solid var(--muted); }
+
+/* 칩과 툴바 */
+.chips { display: flex; gap: 8px; overflow-x: auto; padding: 4px 16px; margin: 6px -16px 0; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+@media (min-width: 760px) { .chips { flex-wrap: wrap; overflow: visible; } }
+.chip {
+  flex: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  border-radius: 999px; padding: 7px 13px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+}
+.chip:hover { border-color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip .n { font-size: 12px; opacity: .65; font-variant-numeric: tabular-nums; }
+.chip.small { padding: 5px 11px; font-size: 13px; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 14px 0 12px; }
+.bar-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.count { margin: 0; font-size: 14px; color: var(--muted); }
+.count b { color: var(--ink); }
+.seg { display: inline-flex; background: var(--sunken); border-radius: 999px; padding: 3px; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.seg::-webkit-scrollbar { display: none; }
+.seg button { flex: none; border: 0; background: transparent; padding: 6px 11px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.12); }
+
+/* 가격표 카드 */
+.list { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .list.two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.deal {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 88px; min-width: 0;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  transition: transform .18s ease, box-shadow .18s ease; animation: rise .35s ease-out both;
+}
+.deal:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(20,22,27,.45); }
+@keyframes rise { from { transform: translateY(8px); } to { transform: none; } }
+.deal-hit, .post-hit { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; margin: 0; padding: 0; border: 0; border-radius: 14px; background: transparent; cursor: pointer; }
+.deal-hit:focus-visible, .post-hit:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.deal-body { display: flex; gap: 12px; padding: 14px; min-width: 0; }
+.thumb { flex: none; width: 56px; height: 56px; border-radius: 12px; display: grid; place-items: center; overflow: hidden; font-size: 30px; line-height: 1; background: hsl(var(--h) var(--tint-s) var(--tint-l)); }
+.thumb img { width: 100%; height: 100%; object-fit: contain; display: block; background: #fff; padding: 3px; }
+.info { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.meta { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; }
+.meta b { color: var(--ink); font-weight: 600; }
+.name { font-size: 15px; font-weight: 500; line-height: 1.38; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.prices { display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 8px; margin-top: 2px; }
+.price { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.price small { font-size: 13px; font-weight: 500; margin-left: 1px; }
+.market { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.since { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 12.5px; font-weight: 600; }
+.since .down { color: var(--accent); }
+.tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+.tag { font-size: 11.5px; font-weight: 500; padding: 2px 7px; border-radius: 5px; background: var(--sunken); color: var(--muted); white-space: nowrap; }
+.tag.save { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.tag.new { background: var(--ink); color: var(--bg); font-weight: 700; letter-spacing: .03em; }
+.tag.warn { background: transparent; color: var(--accent); border: 1px dashed var(--accent); font-weight: 600; }
+.tag.end { background: var(--ink); color: var(--bg); opacity: .55; font-weight: 700; }
+.tag.found { background: var(--sticker); color: var(--sticker-ink); font-weight: 700; }
+.pill { font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--sunken); color: var(--muted); white-space: nowrap; }
+.pill.ok { background: var(--accent); color: #fff; }
+
+.stub {
+  position: relative; margin: -1px -1px -1px 0; padding: 28px 4px 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  border-radius: 0 14px 14px 0; color: #fff; text-align: center;
+  background-color: var(--accent);
+  background-image: linear-gradient(var(--surface) 50%, transparent 50%);
+  background-size: 2px 8px; background-repeat: repeat-y; background-position: left top;
+}
+.stub::before, .stub::after { content: ""; position: absolute; left: -8px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); }
+.stub::before { top: -8px; }
+.stub::after { bottom: -8px; }
+.stub-pct { font-family: var(--font-display); font-size: 34px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.stub-pct small { font-size: 18px; margin-left: 1px; }
+.stub-label { font-size: 11px; font-weight: 600; opacity: .92; line-height: 1.3; }
+.is-cold .stub { background-color: var(--sunken); color: var(--muted); }
+.is-ended { opacity: .62; }
+.is-ended:hover { opacity: .85; }
+.fav {
+  position: absolute; z-index: 2; top: 5px; right: 5px; width: 36px; height: 36px; border-radius: 50%;
+  border: 0; padding: 0; background: transparent; color: #fff; display: grid; place-items: center; cursor: pointer;
+}
+.fav svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+.fav[aria-pressed="true"] svg { fill: currentColor; }
+.fav:hover { background: rgba(255,255,255,.18); }
+.is-cold .fav { color: var(--muted); }
+.is-cold .fav:hover { background: var(--line); }
+.fav:focus-visible { outline: 2px solid var(--ink); outline-offset: 0; }
+.fav.pop svg { animation: pop .32s ease-out; }
+@keyframes pop { 50% { transform: scale(1.35); } }
+.mini-link { position: relative; z-index: 2; align-self: flex-start; font-size: 13px; font-weight: 600; color: var(--accent); }
+
+/* 커뮤니티 글 */
+.posts { display: grid; gap: 8px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .posts { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.post { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; min-width: 0; }
+.post:hover { border-color: var(--muted); }
+.post-top { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; font-size: 12px; color: var(--muted); grid-column: 1 / -1; }
+.src { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; color: var(--ink); }
+.src i { width: 7px; height: 7px; border-radius: 2px; background: hsl(var(--sh) 70% 50%); display: inline-block; }
+.post-title { margin: 0; font-size: 14.5px; font-weight: 500; line-height: 1.42; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-width: 0; }
+.post-stats { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; grid-column: 1 / 2; }
+.verdict { justify-self: end; align-self: center; grid-row: 2 / 4; grid-column: 2; display: grid; justify-items: center; min-width: 68px; padding: 6px 8px; border-radius: 10px; font-size: 11.5px; font-weight: 700; text-align: center; line-height: 1.25; background: var(--sunken); color: var(--muted); }
+.verdict b { font-family: var(--font-display); font-weight: 400; font-size: 21px; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.verdict.hot { background: var(--accent); color: #fff; }
+.verdict.good { background: var(--accent-soft); color: var(--accent); }
+.verdict.skip { background: transparent; border: 1px dashed var(--line); font-weight: 600; }
+.verdict.wait { background: transparent; border: 1px solid var(--line); font-weight: 600; }
+
+.empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 14px; padding: 24px 20px; display: grid; gap: 10px; justify-items: start; grid-column: 1 / -1; }
+.empty h3 { margin: 0; font-size: 17px; text-wrap: balance; }
+.empty p { margin: 0; color: var(--muted); font-size: 14px; }
+.foot-note { margin: 18px 0 0; font-size: 12.5px; color: var(--muted); }
+.loading { padding: 40px 0; color: var(--muted); font-size: 14px; grid-column: 1 / -1; }
+.sub-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 22px 0 10px; }
+.sub-head h3 { margin: 0; font-size: 17px; }
+.more { margin-top: 12px; }
+
+/* 공용 버튼 */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 16px;
+  border-radius: 12px; border: 1.5px solid var(--ink); background: var(--surface); color: var(--ink);
+  font-weight: 600; font-size: 14.5px; text-decoration: none; cursor: pointer; text-align: center;
+}
+.btn svg { width: 18px; height: 18px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.small { min-height: 34px; padding: 0 12px; font-size: 13px; border-width: 1px; border-color: var(--line); border-radius: 999px; }
+.btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.btn[aria-pressed="true"] svg { fill: currentColor; }
+.row-btns { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+/* 페이지 제목 */
+.page-head { padding: 18px 0 10px; }
+.page-head h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 34px; letter-spacing: -0.01em; }
+.page-head p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+
+/* 검색 */
+.searchbox { display: flex; align-items: center; gap: 8px; height: 54px; padding: 0 8px 0 14px; background: var(--surface); border: 2px solid var(--ink); border-radius: 14px; }
+.searchbox:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.searchbox svg { width: 20px; height: 20px; flex: none; color: var(--muted); }
+.searchbox input { flex: 1; min-width: 0; border: 0; background: transparent; outline: none; font-size: 16px; font-weight: 500; }
+.searchbox input::placeholder { color: var(--muted); font-weight: 400; }
+.searchbox input::-webkit-search-cancel-button { display: none; }
+.icon-btn { flex: none; width: 36px; height: 36px; border-radius: 10px; border: 0; background: var(--sunken); color: var(--muted); display: grid; place-items: center; cursor: pointer; }
+.icon-btn svg { width: 16px; height: 16px; }
+.suggest { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; }
+.suggest > span { font-size: 13px; color: var(--muted); margin-right: 2px; }
+.text-btn { border: 0; background: none; padding: 4px 6px; font-size: 12.5px; color: var(--muted); text-decoration: underline; cursor: pointer; }
+.opts { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 14px 0 12px; }
+.opts .row-btns { gap: 6px; }
+.select {
+  appearance: none; -webkit-appearance: none; border: 1px solid var(--line); background-color: var(--surface); border-radius: 999px; padding: 7px 30px 7px 13px; font-size: 13px; font-weight: 600; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 15px) 52%, calc(100% - 10px) 52%; background-size: 5px 5px; background-repeat: no-repeat;
+}
+
+/* 스위치 */
+.switch { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; font-weight: 600; }
+.switch input { appearance: none; -webkit-appearance: none; margin: 0; width: 44px; height: 26px; border-radius: 999px; background: var(--sunken); position: relative; cursor: pointer; transition: background .2s; flex: none; border: 1px solid var(--line); }
+.switch input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .2s; }
+.switch input:checked { background: var(--accent); border-color: var(--accent); }
+.switch input:checked::after { transform: translateX(18px); }
+.switch.small { font-size: 13px; }
+
+/* 찜 */
+.saved-summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 14px; }
+
+/* 설정 */
+.prefs { display: grid; gap: 14px; max-width: 680px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.panel h3 { margin: 0; font-size: 17px; font-weight: 700; }
+.panel .help { margin: 0; color: var(--muted); font-size: 13.5px; }
+.status-pill { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 99px; background: var(--sunken); color: var(--muted); }
+.status-pill.on { background: var(--ok); color: #fff; }
+.th-row { display: flex; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
+.th-val { font-family: var(--font-display); font-size: 72px; line-height: .9; color: var(--accent); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.th-val small { font-size: 36px; }
+.th-txt { font-size: 15px; font-weight: 600; padding-bottom: 6px; }
+.range { -webkit-appearance: none; appearance: none; width: 100%; height: 30px; background: transparent; margin: 0; cursor: pointer; --p: 33%; }
+.range::-webkit-slider-runnable-track { height: 8px; border-radius: 99px; background: linear-gradient(to right, var(--accent) var(--p), var(--sunken) var(--p)); }
+.range::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; margin-top: -10px; border-radius: 50%; background: var(--surface); border: 4px solid var(--accent); box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+.range::-moz-range-track { height: 8px; border-radius: 99px; background: var(--sunken); }
+.range::-moz-range-progress { height: 8px; border-radius: 99px; background: var(--accent); }
+.range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--surface); border: 4px solid var(--accent); }
+.ticks { display: flex; justify-content: space-between; padding: 0 2px; margin-top: -4px; }
+.ticks button { border: 0; background: none; padding: 4px 0; font-size: 12.5px; font-weight: 600; color: var(--muted); cursor: pointer; font-variant-numeric: tabular-nums; min-width: 30px; }
+.ticks button[aria-pressed="true"] { color: var(--accent); }
+.live { margin: 0; padding: 10px 12px; border-radius: 10px; background: var(--sunken); font-size: 14px; }
+.live b { color: var(--accent); }
+.toggles { display: grid; gap: 12px; }
+.cat-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+@media (min-width: 560px) { .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.cat-toggle { display: flex; align-items: center; gap: 10px; padding: 11px 12px; text-align: left; cursor: pointer; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); position: relative; min-width: 0; }
+.cat-toggle .thumb { width: 36px; height: 36px; border-radius: 9px; font-size: 19px; }
+.cat-toggle .t { display: grid; min-width: 0; }
+.cat-toggle .t b { font-size: 14px; font-weight: 600; }
+.cat-toggle .t span { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.cat-toggle[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.cat-toggle[aria-pressed="true"]::after {
+  content: ""; position: absolute; top: 7px; right: 7px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;
+}
+.divider { height: 1px; background: var(--line); }
+.facts-list { margin: 0; display: grid; gap: 8px; font-size: 14px; }
+.facts-list div { display: flex; justify-content: space-between; gap: 12px; }
+.facts-list dt { color: var(--muted); flex: none; }
+.facts-list dd { margin: 0; font-weight: 600; text-align: right; min-width: 0; }
+.src-list { display: grid; gap: 2px; }
+.src-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 4px 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.src-row:last-child { border-bottom: 0; }
+.src-row .nm { font-weight: 600; font-size: 14px; }
+.src-row .nm small { font-weight: 500; color: var(--muted); font-size: 12.5px; margin-left: 4px; }
+.src-row .st { grid-column: 2 / 4; font-size: 12.5px; color: var(--muted); margin-top: -2px; }
+.src-row .st.warn { color: var(--warn); }
+.src-row .st.bad { color: var(--bad); }
+.src-row .switch input { width: 40px; height: 24px; }
+.src-row .switch input::after { width: 18px; height: 18px; }
+.src-row .switch input:checked::after { transform: translateX(16px); }
+.code { margin: 0; padding: 10px 12px; border-radius: 10px; background: var(--sunken); font: 500 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; word-break: break-all; }
+
+/* 탭바 */
+.tabbar {
+  position: fixed; z-index: 20; left: 50%; transform: translateX(-50%); bottom: calc(14px + env(safe-area-inset-bottom));
+  display: flex; gap: 2px; padding: 6px; border-radius: 999px; background: var(--ink); box-shadow: 0 12px 30px -12px rgba(0,0,0,.55); max-width: calc(100% - 20px);
+}
+.tabbar a { position: relative; display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-radius: 999px; text-decoration: none; color: var(--bg); opacity: .72; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.tabbar a svg { width: 18px; height: 18px; flex: none; }
+.tabbar a[aria-current="page"] { background: var(--bg); color: var(--ink); opacity: 1; }
+.tabbar .badge { background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 99px; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) {
+  .tabbar a { padding: 10px 12px; }
+  .tabbar a:not([aria-current="page"]) .lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .tabbar a:not([aria-current="page"]) .badge { position: absolute; top: 2px; right: 0; padding: 0 5px; font-size: 10px; }
+}
+
+/* 토스트 */
+.toast {
+  position: fixed; z-index: 90; left: 50%; bottom: calc(86px + env(safe-area-inset-bottom)); transform: translate(-50%, 10px); opacity: 0; pointer-events: none;
+  max-width: calc(100% - 32px); padding: 11px 16px; border-radius: 12px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,.5); transition: opacity .2s, transform .2s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* 상세 시트 */
+.sheet-wrap { position: fixed; inset: 0; z-index: 50; display: none; }
+.sheet-wrap.open { display: block; }
+.backdrop { position: absolute; inset: 0; background: rgba(8,9,12,.55); }
+.sheet {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: min(580px, 100%); max-height: 92%; overflow-y: auto; overscroll-behavior: contain;
+  background: var(--surface); border-radius: 22px 22px 0 0; padding: 10px 18px calc(22px + env(safe-area-inset-bottom));
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; animation: sheetUp .24s ease-out;
+}
+.sheet:focus { outline: none; }
+@keyframes sheetUp { from { transform: translate(-50%, 28px); } to { transform: translate(-50%, 0); } }
+@media (min-width: 760px) {
+  .sheet { bottom: auto; top: 50%; transform: translate(-50%, -50%); border-radius: 22px; max-height: 88%; animation: sheetPop .22s ease-out; }
+  @keyframes sheetPop { from { transform: translate(-50%, -46%); } to { transform: translate(-50%, -50%); } }
+}
+.sheet-handle { justify-self: center; width: 40px; height: 4px; border-radius: 99px; background: var(--line); }
+.sheet-close { position: absolute; top: 12px; right: 12px; }
+.sh-head { display: flex; gap: 12px; align-items: center; padding-right: 40px; }
+.sh-head .thumb { width: 64px; height: 64px; font-size: 32px; }
+.sh-head h3 { margin: 2px 0 0; font-size: 17px; line-height: 1.38; }
+.sh-sub { margin: 3px 0 0; font-size: 12.5px; color: var(--muted); }
+.sh-price { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px; border-radius: 14px; background: var(--sunken); }
+.sh-label { margin: 0; font-size: 12.5px; color: var(--muted); font-weight: 600; }
+.sh-now { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.sh-now small { font-size: 16px; font-weight: 500; }
+.sh-market { margin: 2px 0 0; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sh-badge { flex: none; display: grid; justify-items: center; background: var(--accent); color: #fff; border-radius: 12px; padding: 10px 12px; min-width: 88px; text-align: center; }
+.sh-badge span { font-family: var(--font-display); font-size: 36px; line-height: 1; letter-spacing: -0.03em; }
+.sh-badge small { font-size: 18px; }
+.sh-badge em { font-style: normal; font-size: 11.5px; font-weight: 700; margin-top: 4px; }
+.sh-badge.is-cold { background: var(--surface); color: var(--muted); border: 1px solid var(--line); }
+.sh-save { margin: -4px 0 0; font-size: 14.5px; }
+.sh-save b { color: var(--accent); }
+.sh-warn { margin: 0; padding: 10px 12px; border-radius: 10px; border: 1px dashed var(--accent); color: var(--accent); font-size: 13.5px; font-weight: 600; }
+.sh-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.how { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; font-size: 13px; color: var(--muted); }
+.how li { display: flex; gap: 8px; }
+.how li::before { content: "·"; font-weight: 700; color: var(--ink); }
+.target { display: grid; gap: 10px; padding: 14px; border-radius: 14px; border: 1.5px dashed var(--line); }
+.target label { font-size: 13px; font-weight: 700; }
+.target-row { display: flex; align-items: center; gap: 8px; }
+.target-row input { flex: 1; min-width: 0; height: 44px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); padding: 0 12px; font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.target-row input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.target .status { margin: 0; font-size: 13.5px; font-weight: 600; }
+.target .status.ok { color: var(--accent); }
+.chart { margin: 0; }
+.chart figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 10px; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.chart figcaption span { font-weight: 500; color: var(--muted); font-size: 12px; display: inline-flex; align-items: center; gap: 10px; }
+.legend i { display: inline-block; width: 14px; height: 0; border-top: 2.2px solid var(--accent); vertical-align: middle; margin-right: 4px; }
+.legend i.avg { border-top: 1.6px dashed var(--ink); opacity: .6; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y; cursor: crosshair; user-select: none; -webkit-user-select: none; }
+.chart text { font: 500 11px var(--font-body); fill: var(--muted); }
+.chart .c-lbl { fill: var(--ink); font-weight: 600; }
+.chart .c-now { fill: var(--accent); font-weight: 700; paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; }
+.chart .c-grid { stroke: var(--line); stroke-width: 1; }
+.chart .c-avg { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 4 4; opacity: .55; }
+.chart .c-deal { stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 2 3; }
+.chart .c-line { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.chart .c-dot { fill: var(--accent); stroke: var(--surface); stroke-width: 2.5; }
+.chart .c-guide { stroke: var(--ink); stroke-width: 1; opacity: .35; }
+.chart .c-hover { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+.chart .c-tip rect { fill: var(--ink); }
+.chart .c-tip text { fill: var(--bg); font-weight: 700; }
+.box { display: grid; gap: 8px; }
+.box h4 { margin: 0; font-size: 13.5px; font-weight: 700; display: flex; justify-content: space-between; gap: 8px; }
+.box h4 span { font-weight: 500; color: var(--muted); font-size: 12px; }
+.box .help { margin: 0; font-size: 12.5px; color: var(--muted); }
+.offer { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 10px; align-items: center; width: 100%; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); text-align: left; }
+.offer.is-deal { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.offer.is-avg { background: var(--sunken); border-style: dashed; }
+.offer.is-same { opacity: .6; }
+.o-mall { font-weight: 600; font-size: 14px; min-width: 0; }
+.o-mall small { display: block; font-weight: 500; color: var(--muted); font-size: 12px; }
+.o-price { font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+.o-diff { font-size: 12px; font-weight: 700; color: var(--muted); min-width: 64px; text-align: right; font-variant-numeric: tabular-nums; }
+.o-diff.hot { color: var(--accent); }
+.mention { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); text-decoration: none; color: inherit; }
+.mention:hover { border-color: var(--muted); }
+.mention small { display: block; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.mention .go { font-size: 13px; font-weight: 700; color: var(--accent); }
+.sh-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sh-actions .btn:only-child { grid-column: 1 / -1; }
+.sh-note { margin: 0; font-size: 12.5px; color: var(--muted); }
+
+@media (max-width: 380px) {
+  .deal { grid-template-columns: minmax(0, 1fr) 76px; }
+  .stub-pct { font-size: 28px; }
+  .sh-actions, .sh-tools { grid-template-columns: 1fr; }
+  .verdict { min-width: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <a class="brand" href="#deals" aria-label="핫딜 레이더 홈">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <circle cx="16" cy="16" r="7" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".45"/>
+        <path d="M16 16 L16 3 A13 13 0 0 1 28.4 12.2 Z" fill="var(--accent)"/>
+        <circle cx="22.5" cy="9.5" r="2.4" fill="var(--sticker)" stroke="var(--ink)" stroke-width="1"/>
+      </svg>
+      핫딜 레이더
+    </a>
+    <button class="demo" type="button" id="dataBadge">불러오는 중</button>
+  </header>
+
+  <main>
+    <!-- 핫딜 -->
+    <section id="view-deals" class="view" aria-labelledby="dealsTitle">
+      <div class="hero">
+        <p class="eyebrow" id="dealsEyebrow"></p>
+        <h1 id="dealsTitle">가격을 불러오는 중이에요</h1>
+        <div class="hero-actions" id="heroActions">
+          <button class="newline" type="button" id="newLine" data-sort="new" hidden></button>
+          <button class="linkish" type="button" data-go="prefs">핫딜 기준·관심 제품군 바꾸기 →</button>
+        </div>
+        <p class="notice" id="homeNotice" hidden></p>
+      </div>
+      <div class="chips" id="homeChips" role="group" aria-label="제품군 필터"></div>
+      <div class="bar" id="homeBar">
+        <div class="bar-left">
+          <div class="seg" role="group" aria-label="딜 종류" id="homeKind">
+            <button type="button" data-kind="all">모두</button>
+            <button type="button" data-kind="community">커뮤니티 딜</button>
+            <button type="button" data-kind="market">가격비교 발굴</button>
+          </div>
+          <p class="count" id="homeCount"></p>
+        </div>
+        <div class="seg" role="group" aria-label="정렬" id="homeSort">
+          <button type="button" data-sort="discount">할인율순</button>
+          <button type="button" data-sort="new">새로 뜬 순</button>
+          <button type="button" data-sort="hot">반응순</button>
+          <button type="button" data-sort="price">낮은 가격순</button>
+        </div>
+      </div>
+      <div class="list two" id="homeList"><p class="loading">가격 정보를 불러오는 중…</p></div>
+      <p class="foot-note" id="footNote"></p>
+    </section>
+
+    <!-- 커뮤니티 -->
+    <section id="view-community" class="view" aria-labelledby="communityTitle" hidden>
+      <div class="page-head">
+        <h2 id="communityTitle">커뮤니티 핫딜</h2>
+        <p id="communitySub">핫딜 게시판에 올라온 글을 모아, 다른 쇼핑몰 평균가와 비교한 결과를 붙였어요.</p>
+      </div>
+      <div class="chips" id="srcChips" role="group" aria-label="게시판"></div>
+      <div class="opts">
+        <div class="row-btns">
+          <label class="switch small" for="cmpOnly"><input type="checkbox" id="cmpOnly"><span>가격 비교된 글만</span></label>
+          <label class="switch small" for="cHideEnded"><input type="checkbox" id="cHideEnded"><span>끝난 딜 숨기기</span></label>
+        </div>
+        <div class="seg" role="group" aria-label="정렬" id="cSort">
+          <button type="button" data-csort="new">최신순</button>
+          <button type="button" data-csort="discount">할인율순</button>
+          <button type="button" data-csort="hot">반응순</button>
+        </div>
+      </div>
+      <p class="count" id="cCount" style="margin-bottom:12px"></p>
+      <div class="posts" id="cList"></div>
+      <div class="more" id="cMore"></div>
+    </section>
+
+    <!-- 검색 -->
+    <section id="view-search" class="view" aria-labelledby="searchTitle" hidden>
+      <div class="page-head">
+        <h2 id="searchTitle">검색</h2>
+        <p>지켜보는 제품과 커뮤니티 글에서 찾고, 쇼핑몰별 가격을 비교해요.</p>
+      </div>
+      <form class="searchbox" role="search" id="searchForm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+        <label for="q" class="sr">검색어</label>
+        <input id="q" type="search" placeholder="제품명, 브랜드, 쇼핑몰" autocomplete="off" enterkeyhint="search">
+        <button class="icon-btn" type="button" id="qClear" aria-label="검색어 지우기" hidden>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+        </button>
+      </form>
+      <div class="suggest" id="recent" hidden></div>
+      <div class="suggest" id="suggest"></div>
+      <div class="chips" id="searchChips" role="group" aria-label="제품군"></div>
+      <div class="opts">
+        <label class="switch" for="hotOnly"><input type="checkbox" id="hotOnly"><span id="hotOnlyLabel">핫딜만 보기</span></label>
+        <div class="row-btns">
+          <label for="priceRange" class="sr">가격대</label>
+          <select class="select" id="priceRange">
+            <option value="all">가격 전체</option>
+            <option value="0-50000">5만원 이하</option>
+            <option value="50000-200000">5만~20만원</option>
+            <option value="200000-500000">20만~50만원</option>
+            <option value="500000-1000000">50만~100만원</option>
+            <option value="1000000-">100만원 이상</option>
+          </select>
+          <label for="searchSort" class="sr">정렬</label>
+          <select class="select" id="searchSort">
+            <option value="discount">할인율 높은순</option>
+            <option value="price">가격 낮은순</option>
+            <option value="new">최근 확인순</option>
+          </select>
+        </div>
+      </div>
+      <p class="count" id="searchCount" style="margin-bottom:12px"></p>
+      <div class="list two" id="searchList"></div>
+      <div id="searchPosts"></div>
+    </section>
+
+    <!-- 찜 -->
+    <section id="view-saved" class="view" aria-labelledby="savedTitle" hidden>
+      <div class="page-head">
+        <h2 id="savedTitle">찜한 제품</h2>
+        <p>찜한 뒤 가격이 내려가거나 목표가에 닿으면 여기서 바로 보여요.</p>
+      </div>
+      <div class="saved-summary" id="savedSummary"></div>
+      <div class="list two" id="savedList"></div>
+      <p class="foot-note" id="savedNote"></p>
+    </section>
+
+    <!-- 설정 -->
+    <section id="view-prefs" class="view" aria-labelledby="prefsTitle" hidden>
+      <div class="page-head">
+        <h2 id="prefsTitle">설정</h2>
+        <p>내 기준에 맞는 핫딜만 보여줘요. 바꾸면 바로 저장돼요.</p>
+      </div>
+      <div class="prefs">
+        <div class="panel">
+          <div class="panel-head"><h3>핫딜 기준</h3></div>
+          <div class="th-row">
+            <span class="th-val" id="thVal">30<small>%</small></span>
+            <span class="th-txt">이상 쇼핑몰 평균가보다 싸면 핫딜</span>
+          </div>
+          <div>
+            <label for="th" class="sr">핫딜 기준 할인율</label>
+            <input class="range" type="range" id="th" min="5" max="70" step="5" value="30">
+            <div class="ticks" id="ticks"></div>
+          </div>
+          <p class="live" id="thLive"></p>
+          <div class="divider"></div>
+          <div class="toggles">
+            <label class="switch" for="hideSuspicious"><input type="checkbox" id="hideSuspicious"><span id="hideSuspiciousLabel">가격 오류로 보이는 딜 숨기기</span></label>
+            <label class="switch" for="hideEnded"><input type="checkbox" id="hideEnded"><span>끝난 딜 숨기기 (품절·종료 표시된 글)</span></label>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>관심 제품군</h3>
+            <div class="row-btns">
+              <button class="btn small" type="button" id="catAll">전체 선택</button>
+              <button class="btn small" type="button" id="catNone">선택 해제</button>
+            </div>
+          </div>
+          <p class="help">고른 제품군의 핫딜만 홈에 보여요. 아무것도 고르지 않으면 전체를 보여줘요. 숫자는 지금 기준을 넘는 핫딜 수예요.</p>
+          <div class="cat-grid" id="catGrid"></div>
+          <div class="divider"></div>
+          <label class="switch" for="interestOnly"><input type="checkbox" id="interestOnly"><span>홈에서 관심 제품군만 보기</span></label>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>출처와 수집 상태</h3><span class="status-pill" id="srcPill"></span></div>
+          <p class="help">끈 출처의 딜은 이 기기 화면에서만 빠져요. 수집 자체를 멈추려면 config.json의 sources를 바꾸세요.</p>
+          <div class="src-list" id="srcList"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>쇼핑몰</h3></div>
+          <p class="help">끈 쇼핑몰에서 파는 딜은 홈·검색에서 빠져요. 쇼핑몰 평균가 계산에는 그대로 들어가요.</p>
+          <div class="row-btns" id="mallChips"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>텔레그램 알림</h3><span class="status-pill" id="alertsPill">꺼짐</span></div>
+          <p class="help" id="alertsHelp"></p>
+          <dl class="facts-list" id="alertsFacts"></dl>
+          <div class="row-btns"><button class="btn small" type="button" id="copyAlerts">지금 설정으로 알림 기준 복사</button></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>찜한 제품 계속 추적하기</h3></div>
+          <p class="help" id="watchHelp"></p>
+          <div class="row-btns"><button class="btn small" type="button" id="copyWatch">찜 목록을 watch 설정으로 복사</button></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>계산 방법과 데이터</h3></div>
+          <dl class="facts-list" id="dataFacts"></dl>
+          <p class="help" id="dataNote"></p>
+          <div class="row-btns">
+            <button class="btn small" type="button" id="resetPrefs">설정 초기화</button>
+            <button class="btn small" type="button" id="clearFavs">찜 목록 비우기</button>
+            <button class="btn small" type="button" id="clearRecent">최근 검색 지우기</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<nav class="tabbar" aria-label="메뉴">
+  <a href="#deals" data-tab="deals">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.6 2.2c.5 3 2.6 4.6 4.1 6.5 1.3 1.6 2.3 3.4 2.3 5.6A7 7 0 0 1 5 14.5c0-2.4 1.1-4.3 2.7-5.7.2 1.7 1 2.9 2.2 3.4-.5-3.8.6-7.3 2.7-10z"/></svg>
+    <span class="lbl">핫딜</span> <span class="badge" id="tabBadge" hidden>0</span>
+  </a>
+  <a href="#community" data-tab="community">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5" stroke-linecap="round"/></svg>
+    <span class="lbl">커뮤니티</span>
+  </a>
+  <a href="#search" data-tab="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+    <span class="lbl">검색</span>
+  </a>
+  <a href="#saved" data-tab="saved">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.2-9.3C1.7 7.6 3.8 4.4 7.2 4.4c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.4 0 5.5 3.2 4.4 6.6-1.6 4.7-9.2 9.3-9.2 9.3z"/></svg>
+    <span class="lbl">찜</span> <span class="badge" id="savedBadge" hidden>0</span>
+  </a>
+  <a href="#prefs" data-tab="prefs">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg>
+    <span class="lbl">설정</span>
+  </a>
+</nav>
+
+<div class="sheet-wrap" id="sheetWrap" aria-hidden="true">
+  <div class="backdrop" data-close></div>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" id="sheet" tabindex="-1"></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  "use strict";
+
+  // ── 공용 ───────────────────────────────────────────────────
+  const $ = id => document.getElementById(id);
+  const won = n => Math.round(n).toLocaleString("ko-KR");
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+  const norm = s => String(s ?? "").toLowerCase().replace(/\s+/g, "");
+  const DAYS = ["일", "월", "화", "수", "목", "금", "토"];
+  const H = 3.6e6, DAY = 864e5;
+  const TOP = (() => { try { return window.self === window.top; } catch (e) { return false; } })();
+  const WEB = /^https?:$/.test(location.protocol);
+  const HEART = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.2-9.3C1.7 7.6 3.8 4.4 7.2 4.4c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.4 0 5.5 3.2 4.4 6.6-1.6 4.7-9.2 9.3-9.2 9.3z"/></svg>';
+  const SHARE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>';
+  const CLOSE = `<div class="sheet-handle" aria-hidden="true"></div>
+    <button class="icon-btn sheet-close" type="button" data-close aria-label="닫기"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>`;
+  const SRC_HUE = { ppomppu: 212, ppomppu_overseas: 212, ruliweb: 236, coolenjoy: 186, damoang: 150, quasarzone: 24, arcalive: 280, clien: 200, fmkorea: 110, danawa: 4 };
+
+  function kst(date) { return new Date(date.getTime() + 9 * H); } // getUTC*로 한국 시간을 읽는다
+  function stamp(ms, withTime) {
+    const k = kst(new Date(ms));
+    const base = `${k.getUTCMonth() + 1}월 ${k.getUTCDate()}일(${DAYS[k.getUTCDay()]})`;
+    return withTime ? `${base} ${String(k.getUTCHours()).padStart(2, "0")}:${String(k.getUTCMinutes()).padStart(2, "0")}` : base;
+  }
+  function ago(h) {
+    if (!Number.isFinite(h) || h < 0) h = 0;
+    if (h < 1) return Math.max(1, Math.round(h * 60)) + "분 전";
+    if (h < 24) return Math.floor(h) + "시간 전";
+    return Math.floor(h / 24) + "일 전";
+  }
+  const hoursSince = ms => (Date.now() - ms) / H;
+  const agoMs = ms => (ms ? ago(hoursSince(ms)) : "");
+  function lsGet(key, fallback) { try { const v = JSON.parse(localStorage.getItem(key) || "null"); return v ?? fallback; } catch (e) { return fallback; } }
+  function lsSet(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* 저장이 막혀 있으면 이번 방문 동안만 유지 */ } }
+  const httpUrl = u => (typeof u === "string" && /^https?:\/\//.test(u) ? u : "");
+  function cleanName(name) { return String(name || "").replace(/\[[^\]]*\]|\([^)]*\)/g, " ").replace(/\s+/g, " ").trim().slice(0, 60); }
+  const danawaSearch = name => "https://search.danawa.com/dsearch.php?query=" + encodeURIComponent(cleanName(name));
+  const danawaProduct = pcode => "https://prod.danawa.com/info/?pcode=" + encodeURIComponent(pcode);
+  function manwon(n) {
+    if (n >= 10000) { const m = n / 10000; return (m >= 10 ? Math.round(m) : Math.round(m * 10) / 10) + "만원"; }
+    return won(n) + "원";
+  }
+  const pct = r => (r >= 0 ? Math.floor(r) : -Math.round(-r));
+
+  // ── 데이터 불러오기 ─────────────────────────────────────────
+  async function fetchJson(url) {
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 12000);
+      const res = await fetch(url, { cache: "no-cache", signal: ctrl.signal });
+      clearTimeout(timer);
+      if (res.status === 404) return { status: "missing" };
+      if (!res.ok) return { status: "error" };
+      const j = await res.json();
+      if (!j || j.version !== 2 || !Array.isArray(j.deals) || !Array.isArray(j.categories)) return { status: "invalid" };
+      return { status: "ok", json: j };
+    } catch (e) {
+      return { status: "error" };
+    }
+  }
+  function inlineDemo() {
+    const el = document.getElementById("demo-json");
+    if (!el) return null;
+    try { const j = JSON.parse(el.textContent); return j && j.version === 2 ? j : null; } catch (e) { return null; }
+  }
+  async function loadData() {
+    const live = await fetchJson("data/deals.json");
+    if (live.status === "ok") return { mode: live.json.demo ? "demo" : "live", json: live.json };
+    const inline = inlineDemo();
+    if (inline) return { mode: "demo", json: inline, why: live.status };
+    if (live.status === "missing" || !WEB) {
+      const demo = await fetchJson("data/demo.json");
+      if (demo.status === "ok") return { mode: "demo", json: demo.json, why: live.status };
+    }
+    return { mode: null, status: live.status };
+  }
+
+  function normalize(j, mode) {
+    // 예시 데이터는 '방금 수집한 것'처럼 보이도록 시각을 지금으로 옮긴다
+    const shift = mode === "demo" ? Date.now() - Date.parse(j.generatedAt) : 0;
+    const T = s => { const t = Date.parse(s); return Number.isFinite(t) ? t + shift : null; };
+    const dayShift = Math.round(shift / DAY);
+    const shiftDate = s => { if (!dayShift) return s; const d = new Date(Date.parse(s + "T00:00:00Z") + dayShift * DAY); return d.toISOString().slice(0, 10); };
+    const cats = j.categories.map(c => ({ id: String(c.id), name: String(c.name), icon: c.icon || "🛒", hue: Number(c.hue) || 220, keywords: Array.isArray(c.keywords) ? c.keywords : [] }));
+    const catMap = Object.fromEntries(cats.map(c => [c.id, c]));
+    const catOf = id => (catMap[id] ? id : "etc");
+    const num = v => (v == null || v === "" || !Number.isFinite(Number(v)) ? null : Number(v));
+    const sources = (j.sources || []).map(s => ({ ...s, lastOkAt: T(s.lastOk), retryAt: T(s.retryAfter) }));
+    const mention = m => ({ id: String(m.id), source: String(m.source), url: httpUrl(m.url), votes: num(m.votes), comments: num(m.comments), postedAt: T(m.postedAt), ended: !!m.ended });
+    const deals = j.deals.filter(d => num(d.price) > 0 && num(d.rate) != null && num(d.referencePrice) > 0).map(d => ({
+      key: "deal:" + d.id, id: String(d.id), kind: d.kind === "market" ? "market" : "community",
+      name: String(d.name || d.danawaName || ""), title: String(d.title || ""), danawaName: String(d.danawaName || ""),
+      mall: String(d.mall || ""), price: num(d.price), shipping: String(d.shipping || ""), url: httpUrl(d.url), source: String(d.source || ""),
+      cat: catOf(d.cat), postedAt: T(d.postedAt), detectedAt: T(d.detectedAt) || T(d.postedAt), pcode: String(d.pcode || ""),
+      rate: num(d.rate), reference: d.reference === "lowest" ? "lowest" : "average", referencePrice: num(d.referencePrice),
+      average: num(d.average), lowest: num(d.lowest), lowestMall: String(d.lowestMall || ""), malls: num(d.malls),
+      basis: d.basis === "total" ? "total" : "price", unitAdjusted: !!d.unitAdjusted, suspicious: !!d.suspicious, ended: !!d.ended,
+      votes: num(d.votes), views: num(d.views), comments: num(d.comments), image: httpUrl(d.image), listed: !!d.listed,
+      secondPrice: num(d.secondPrice), dealTotal: num(d.dealTotal), mentions: Array.isArray(d.mentions) ? d.mentions.map(mention) : []
+    }));
+    const posts = (j.posts || []).map(p => {
+      const v = p.verify || {};
+      return {
+        key: "post:" + p.id, id: String(p.id), source: String(p.source), url: httpUrl(p.url), title: String(p.title || ""), name: String(p.name || ""),
+        mall: String(p.mall || ""), price: num(p.price), currency: p.currency, shipping: String(p.shipping || ""),
+        postedAt: T(p.postedAt) || T(p.firstSeen), firstSeen: T(p.firstSeen), cat: catOf(p.cat), board: String(p.board || ""),
+        votes: num(p.votes), views: num(p.views), comments: num(p.comments), ended: !!p.ended, flags: Array.isArray(p.flags) ? p.flags : [],
+        verify: { ...v, rate: num(v.rate), referencePrice: num(v.referencePrice), average: num(v.average), lowest: num(v.lowest), malls: num(v.malls), dealTotal: num(v.dealTotal), checkedAt: T(v.checkedAt) }
+      };
+    });
+    const products = Object.values(j.products || {}).map(p => ({
+      pcode: String(p.pcode), name: String(p.name || ""), cat: catOf(p.cat), image: httpUrl(p.image), lowest: num(p.lowest), average: num(p.average),
+      othersAverage: num(p.othersAverage), malls: num(p.malls), offerCount: num(p.offerCount), rate: num(p.rate), bestMall: String(p.bestMall || ""),
+      checkedAt: T(p.checkedAt), url: httpUrl(p.url) || danawaProduct(p.pcode), keyword: String(p.keyword || ""), watch: !!p.watch,
+      posts: Array.isArray(p.posts) ? p.posts.map(String) : [],
+      offers: Array.isArray(p.offers) ? p.offers.filter(o => num(o.price) > 0).map(o => ({ mall: String(o.mall), price: num(o.price), shipping: String(o.shipping || ""), fee: num(o.fee) })) : null,
+      history: Array.isArray(p.history) ? p.history.filter(h => Array.isArray(h) && /^\d{4}-\d{2}-\d{2}$/.test(h[0])).map(h => [shiftDate(h[0]), num(h[1]), num(h[2])]) : null
+    }));
+    if (!catMap.etc) cats.push({ id: "etc", name: "기타", icon: "🛒", hue: 0, keywords: [] });
+    return {
+      mode, generatedAt: T(j.generatedAt) || Date.now(), lastRunAt: T(j.lastRun), cats, deals, posts, products, sources,
+      stats: j.stats || {}, params: j.params || {}, alerts: j.alerts || null,
+      suggest: cats.flatMap(c => c.keywords.slice(0, 1)).slice(0, 8)
+    };
+  }
+
+  // ── 현재 데이터 ───────────────────────────────────────────
+  let D = null, CATS = [], CAT = {}, DEALS = [], DEAL = {}, POSTS = [], POST = {}, PROD = {}, SRC = {}, POST_DEAL = {}, DEALS_BY_PCODE = {}, MALLS = [];
+  function setData(d) {
+    D = d;
+    CATS = d.cats;
+    CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
+    SRC = Object.fromEntries(d.sources.map(s => [s.id, s]));
+    DEALS = d.deals.map(x => {
+      x.save = x.referencePrice - (x.dealTotal || x.price);
+      x.buzz = (x.votes || 0) * 3 + (x.comments || 0) + x.mentions.length * 5;
+      x.hay = norm(`${x.name} ${x.danawaName} ${x.mall} ${CAT[x.cat] ? CAT[x.cat].name : ""}`);
+      return x;
+    });
+    DEAL = Object.fromEntries(DEALS.map(x => [x.id, x]));
+    POSTS = d.posts.map(p => { p.hay = norm(`${p.title} ${p.mall}`); p.buzz = (p.votes || 0) * 3 + (p.comments || 0); return p; });
+    POST = Object.fromEntries(POSTS.map(p => [p.id, p]));
+    PROD = Object.fromEntries(d.products.map(p => { p.hay = norm(`${p.name} ${p.keyword} ${CAT[p.cat] ? CAT[p.cat].name : ""}`); return [p.pcode, p]; }));
+    POST_DEAL = {}; DEALS_BY_PCODE = {};
+    DEALS.forEach(x => {
+      x.mentions.forEach(m => { POST_DEAL[m.id] = x.id; });
+      (DEALS_BY_PCODE[x.pcode] = DEALS_BY_PCODE[x.pcode] || []).push(x);
+    });
+    const counts = {};
+    DEALS.forEach(x => { if (x.mall) counts[x.mall] = (counts[x.mall] || 0) + 1; });
+    MALLS = Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b, "ko"));
+    prefs.interests = prefs.interests.filter(id => CAT[id]);
+  }
+  const dataAgeH = () => (D ? hoursSince(D.generatedAt) : 0);
+  const isStale = () => D && D.mode === "live" && dataAgeH() > 3;
+  const srcName = id => (SRC[id] ? SRC[id].name + (id === "ppomppu_overseas" ? " 해외" : "") : id);
+
+  // ── 저장되는 사용자 상태 ─────────────────────────────────────
+  const K = { prefs: "hotdeal-radar:prefs:v2", favs: "hotdeal-radar:favs:v2", recent: "hotdeal-radar:recent:v1", visit: "hotdeal-radar:visit:v1" };
+  const DEFAULTS = { threshold: 30, interests: [], interestOnly: true, excludedMalls: [], hiddenSources: [], hideSuspicious: true, hideEnded: true };
+  function loadPrefs() {
+    const s = lsGet(K.prefs, null);
+    if (!s || typeof s !== "object") return { ...DEFAULTS, interests: [], excludedMalls: [], hiddenSources: [] };
+    const arr = v => (Array.isArray(v) ? v.map(String) : []);
+    const bool = (v, d) => (typeof v === "boolean" ? v : d);
+    return {
+      threshold: Number.isFinite(s.threshold) ? Math.min(70, Math.max(5, s.threshold)) : DEFAULTS.threshold,
+      interests: arr(s.interests), interestOnly: bool(s.interestOnly, true), excludedMalls: arr(s.excludedMalls), hiddenSources: arr(s.hiddenSources),
+      hideSuspicious: bool(s.hideSuspicious, true), hideEnded: bool(s.hideEnded, true)
+    };
+  }
+  let prefs = loadPrefs();
+  const savePrefs = () => lsSet(K.prefs, prefs);
+  let favs = (() => { const f = lsGet(K.favs, {}); return f && typeof f === "object" && !Array.isArray(f) ? f : {}; })();
+  const saveFavs = () => lsSet(K.favs, favs);
+  let recent = (() => { const r = lsGet(K.recent, []); return Array.isArray(r) ? r.filter(x => typeof x === "string").slice(0, 8) : []; })();
+  const saveRecent = () => lsSet(K.recent, recent);
+
+  // 지난 방문 뒤 새로 뜬 핫딜: 마지막으로 앱을 떠난 시각 이후 발견된 것
+  const visit = lsGet(K.visit, null);
+  const firstVisit = !(visit && visit.last);
+  let newCutoff = firstVisit ? Date.now() - 3 * H : visit.last;
+  let hiddenAt = null;
+  function markVisit() { lsSet(K.visit, { last: Date.now() }); }
+
+  const ui = { homeCat: "all", homeKind: "all", homeSort: "discount", cSrc: "all", cSort: "new", cmpOnly: false, cLimit: 60,
+    q: "", searchCat: "all", searchSort: "discount", hotOnly: false, price: "all" };
+
+  // ── 판정 ───────────────────────────────────────────────────
+  const isHot = x => x.rate != null && x.rate >= prefs.threshold;
+  const isNew = x => !!x.detectedAt && x.detectedAt > newCutoff;
+  const srcOn = id => !prefs.hiddenSources.includes(id);
+  function dealVisible(x) {
+    if (prefs.excludedMalls.includes(x.mall)) return false;
+    if (prefs.hideSuspicious && x.suspicious) return false;
+    if (prefs.hideEnded && x.ended) return false;
+    if (x.kind === "market") return srcOn("danawa");
+    return x.mentions.length ? x.mentions.some(m => srcOn(m.source)) : srcOn(x.source);
+  }
+  const interestActive = () => prefs.interestOnly && prefs.interests.length > 0;
+  const inHomeScope = x => !interestActive() || prefs.interests.includes(x.cat);
+  const SORTS = {
+    discount: (a, b) => (b.rate ?? -999) - (a.rate ?? -999),
+    new: (a, b) => (isNew(b) - isNew(a)) || ((b.detectedAt || 0) - (a.detectedAt || 0)),
+    hot: (a, b) => (b.buzz || 0) - (a.buzz || 0) || (b.rate ?? 0) - (a.rate ?? 0),
+    price: (a, b) => a.price - b.price
+  };
+  function hotScoped() {
+    const scoped = DEALS.filter(x => dealVisible(x) && inHomeScope(x));
+    return { scoped, hot: scoped.filter(isHot) };
+  }
+  function refLabel(x) { return x.reference === "lowest" ? "다나와 최저가" : "쇼핑몰 평균"; }
+  function stubLabel(x) {
+    if (x.rate == null) return "비교 부족";
+    if (x.ended) return "끝난 딜";
+    if (isHot(x)) return x.suspicious ? "확인 필요" : (x.reference === "lowest" ? "최저가보다 ↓" : "평균보다 ↓");
+    if (x.rate < 0) return "평균보다 비쌈";
+    return "기준 미달";
+  }
+  // 찜한 제품의 지금 가장 싼 값: 진행 중인 딜과 다나와 최저가 중 낮은 것
+  function bestNow(pcode) {
+    const p = PROD[pcode];
+    const live = (DEALS_BY_PCODE[pcode] || []).filter(x => !x.ended && !x.suspicious).sort((a, b) => a.price - b.price)[0];
+    const opts = [];
+    if (live) opts.push({ price: live.price, mall: live.mall, via: live.kind === "community" ? srcName(live.mentions[0] ? live.mentions[0].source : live.source) + " 딜" : "다나와", deal: live });
+    if (p && p.lowest) opts.push({ price: p.lowest, mall: p.bestMall || "", via: "다나와 최저가" });
+    opts.sort((a, b) => a.price - b.price);
+    return opts[0] || null;
+  }
+  function targetReached(pcode) { const f = favs[pcode], b = bestNow(pcode); return !!(f && f.target && b && b.price <= f.target); }
+
+  // 상세 화면에 쓰는 '딜 같은' 객체: 제품 하나, 또는 묶이지 않은 커뮤니티 글 하나
+  function productItem(p) {
+    const ref = p.othersAverage || p.average;
+    return {
+      key: "p:" + p.pcode, id: p.pcode, kind: "market", isProduct: true, name: p.name, title: p.name, danawaName: p.name, mall: p.bestMall,
+      price: p.lowest, shipping: "", url: p.url, source: "danawa", cat: p.cat, postedAt: p.checkedAt, detectedAt: null, pcode: p.pcode,
+      rate: p.rate, reference: "average", referencePrice: ref, average: ref, lowest: p.lowest, lowestMall: p.bestMall, malls: p.malls,
+      basis: "price", unitAdjusted: false, suspicious: false, ended: false, votes: null, views: null, comments: null, image: p.image,
+      mentions: [], save: p.rate != null && ref ? ref - p.lowest : 0, buzz: 0
+    };
+  }
+  function postItem(post) {
+    const v = post.verify, p = PROD[v.pcode];
+    return {
+      key: post.key, id: post.id, kind: "community", isPost: true, name: post.name || post.title, title: post.title, danawaName: v.danawaName || "",
+      mall: post.mall, price: post.price, shipping: post.shipping, url: post.url, source: post.source, cat: post.cat,
+      postedAt: post.postedAt, detectedAt: post.firstSeen, pcode: v.pcode || "", rate: v.rate, reference: v.reference === "lowest" ? "lowest" : "average",
+      referencePrice: v.referencePrice, average: v.average, lowest: v.lowest, lowestMall: v.lowestMall || "", malls: v.malls,
+      basis: v.basis === "total" ? "total" : "price", unitAdjusted: !!v.unitAdjusted, suspicious: !!v.suspicious, ended: post.ended,
+      votes: post.votes, views: post.views, comments: post.comments, image: p ? p.image : "",
+      mentions: [{ id: post.id, source: post.source, url: post.url, votes: post.votes, comments: post.comments, postedAt: post.postedAt, ended: post.ended }],
+      save: v.referencePrice ? v.referencePrice - (v.dealTotal || post.price) : 0, buzz: post.buzz, matchScore: v.matchScore
+    };
+  }
+  function itemFor(key) {
+    const i = key.indexOf(":"), kind = key.slice(0, i), id = key.slice(i + 1);
+    if (kind === "deal") return DEAL[id] || null;
+    if (kind === "p") return PROD[id] ? productItem(PROD[id]) : null;
+    if (kind === "post") {
+      const post = POST[id];
+      if (!post) return null;
+      if (POST_DEAL[id] && DEAL[POST_DEAL[id]]) return DEAL[POST_DEAL[id]];
+      return post.verify.status === "ok" && post.verify.rate != null ? postItem(post) : { isRawPost: true, post };
+    }
+    return null;
+  }
+
+  // ── 카드 ───────────────────────────────────────────────────
+  function thumb(x, c) {
+    c = c || CAT[x.cat] || { hue: 220, icon: "🛒" };
+    const icon = c.icon || "🛒";
+    const inner = x.image
+      ? `<img src="${esc(x.image)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="${esc(icon)}">`
+      : esc(icon);
+    return `<span class="thumb" style="--h:${c.hue}" aria-hidden="true">${inner}</span>`;
+  }
+  function originLabel(x) {
+    if (x.isProduct) return x.postedAt ? `다나와 · ${agoMs(x.postedAt)} 확인` : "다나와";
+    if (x.kind === "market") return `가격비교 발굴 · ${agoMs(x.detectedAt)}부터`;
+    const ms = x.mentions.length ? x.mentions : [{ source: x.source }];
+    const first = srcName(ms[0].source);
+    return `${esc(first)}${ms.length > 1 ? ` 외 ${ms.length - 1}곳` : ""} · ${agoMs(x.postedAt)}`;
+  }
+  function savedLine(x, f) {
+    const now = bestNow(x.pcode);
+    if (!now) return "";
+    const diff = now.price - f.savedPrice;
+    let txt;
+    if (diff < 0) txt = `<span class="down">찜한 뒤 ${won(-diff)}원 내렸어요 (${Math.round(-diff / f.savedPrice * 100)}%↓)</span>`;
+    else if (diff > 0) txt = `<span>찜한 뒤 ${won(diff)}원 올랐어요</span>`;
+    else txt = `<span>찜할 때와 같은 가격이에요</span>`;
+    let pill = "";
+    if (f.target) pill = now.price <= f.target ? `<span class="pill ok">목표가 도달</span>` : `<span class="pill">목표가까지 ${won(now.price - f.target)}원</span>`;
+    return `<span class="since">${txt}${pill}</span>`;
+  }
+  function card(x, opt = {}) {
+    const hot = isHot(x), fav = !!(x.pcode && favs[x.pcode]);
+    const ref = x.referencePrice ? `<span class="market">${refLabel(x)} ${won(x.referencePrice)}원${x.malls ? ` · ${x.malls}곳` : ""}</span>` : "";
+    const tags = [
+      isNew(x) && hot && !x.isProduct ? '<span class="tag new">NEW</span>' : "",
+      x.ended ? '<span class="tag end">끝남</span>' : "",
+      x.suspicious ? '<span class="tag warn">가격 확인 필요</span>' : "",
+      x.save > 0 ? `<span class="tag save">${manwon(x.save)} 싸게</span>` : "",
+      x.kind === "market" && !x.isProduct ? '<span class="tag found">다나와에서 발견</span>' : "",
+      x.listed ? '<span class="tag">다나와에도 같은 값</span>' : "",
+      x.votes ? `<span class="tag">추천 ${won(x.votes)}</span>` : "",
+      x.comments ? `<span class="tag">댓글 ${won(x.comments)}</span>` : "",
+      x.unitAdjusted ? '<span class="tag">개당 가격 비교</span>' : "",
+      x.reference === "lowest" && !x.isProduct ? '<span class="tag">판매처 적음</span>' : ""
+    ].join("");
+    const label = `${x.name}, ${won(x.price)}원, ${refLabel(x)}보다 ${x.rate != null ? pct(x.rate) + "%" : "비교 없음"}${x.ended ? ", 끝난 딜" : ""}, 자세히 보기`;
+    return `<article class="deal${hot && !x.ended ? "" : " is-cold"}${x.ended ? " is-ended" : ""}">
+      <button class="deal-hit" type="button" data-open="${esc(x.key)}" aria-label="${esc(label)}"></button>
+      <div class="deal-body">
+        ${thumb(x)}
+        <div class="info">
+          <span class="meta"><b>${esc(x.mall || "판매처 미상")}</b><span>${originLabel(x)}</span></span>
+          <span class="name">${esc(x.name)}</span>
+          <span class="prices"><span class="price">${won(x.price)}<small>원</small></span>${ref}</span>
+          ${opt.saved ? savedLine(x, opt.saved) : ""}
+          <span class="tags">${tags}</span>
+        </div>
+      </div>
+      <div class="stub" aria-hidden="true">${x.rate != null ? `<span class="stub-pct">${pct(x.rate)}<small>%</small></span>` : ""}<span class="stub-label">${stubLabel(x)}</span></div>
+      ${x.pcode ? `<button class="fav" type="button" data-fav="${esc(x.pcode)}" data-from="${esc(x.key)}" aria-pressed="${fav}" aria-label="${fav ? "찜 해제" : "찜하기"}">${HEART}</button>` : ""}
+    </article>`;
+  }
+  function missingCard(pcode, f) {
+    return `<article class="deal is-cold">
+      <div class="deal-body">
+        ${thumb({ image: f.image || "", cat: f.cat })}
+        <div class="info">
+          <span class="meta"><b>${esc(f.mall || "")}</b><span>지금은 지켜보는 목록에 없어요</span></span>
+          <span class="name">${esc(f.name || "")}</span>
+          <span class="prices"><span class="market">찜할 때 ${won(f.savedPrice || 0)}원</span></span>
+          <a class="mini-link" href="${esc(danawaProduct(pcode))}" target="_blank" rel="noopener noreferrer">다나와에서 지금 가격 보기 ↗</a>
+        </div>
+      </div>
+      <div class="stub" aria-hidden="true"><span class="stub-label">정보 없음</span></div>
+      <button class="fav" type="button" data-fav="${esc(pcode)}" aria-pressed="true" aria-label="찜 해제">${HEART}</button>
+    </article>`;
+  }
+  const SKIP_SHORT = { non_product: "상품권·쿠폰", digital: "디지털 상품", overseas: "해외 딜", free: "무료 배포", noprice: "가격 없음", multi: "가격 여러 개", ended: "끝난 딜", noname: "상품명 불명" };
+  function verdictHtml(p) {
+    const v = p.verify;
+    if (v.status === "ok" && v.rate != null) {
+      const r = v.rate;
+      if (v.suspicious) return `<span class="verdict good"><b>${pct(r)}%</b>확인 필요</span>`;
+      if (r >= prefs.threshold) return `<span class="verdict hot"><b>${pct(r)}%</b>평균보다↓</span>`;
+      if (r >= 10) return `<span class="verdict good"><b>${pct(r)}%</b>평균보다↓</span>`;
+      if (r > -5) return `<span class="verdict"><b>${pct(r)}%</b>평균 수준</span>`;
+      return `<span class="verdict"><b>+${Math.round(-r)}%</b>평균보다 비쌈</span>`;
+    }
+    if (v.status === "skipped") return `<span class="verdict skip">${esc(SKIP_SHORT[v.code] || "비교 안 함")}</span>`;
+    if (v.status === "nomatch") return `<span class="verdict skip">같은 제품<br>못 찾음</span>`;
+    if (v.status === "noprice") return `<span class="verdict skip">다나와 가격<br>없음</span>`;
+    return `<span class="verdict wait">비교<br>대기 중</span>`;
+  }
+  function postRow(p) {
+    const dealId = POST_DEAL[p.id];
+    const open = dealId && DEAL[dealId] ? "deal:" + dealId : p.key;
+    const price = p.price && p.currency === "KRW" ? `${won(p.price)}원` : "";
+    const stats = [p.votes != null ? `추천 ${won(p.votes)}` : "", p.comments != null ? `댓글 ${won(p.comments)}` : "", p.views != null ? `조회 ${won(p.views)}` : ""].filter(Boolean).join(" · ");
+    return `<article class="post${p.ended ? " is-ended" : ""}">
+      <button class="post-hit" type="button" data-open="${esc(open)}" aria-label="${esc(p.title)}${p.ended ? ", 끝난 딜" : ""}, 자세히 보기"></button>
+      <div class="post-top"><span class="src" style="--sh:${SRC_HUE[p.source] ?? 220}"><i></i>${esc(srcName(p.source))}</span><span>${agoMs(p.postedAt)}</span>${p.mall ? `<span>${esc(p.mall)}</span>` : ""}${price ? `<b class="num" style="color:var(--ink)">${price}</b>` : ""}${p.ended ? '<span class="tag end">끝남</span>' : ""}</div>
+      <p class="post-title">${esc(p.title)}</p>
+      <span class="post-stats">${stats || "&nbsp;"}</span>
+      ${verdictHtml(p)}
+    </article>`;
+  }
+
+  // ── 상단 ───────────────────────────────────────────────────
+  function statusClass(st) {
+    if (st === "ok") return "ok";
+    if (["empty", "parse_error", "warn", "unavailable"].includes(st)) return "warn";
+    if (["blocked", "robots", "error"].includes(st)) return "bad";
+    return "off";
+  }
+  const STATUS_TEXT = { ok: "정상", empty: "글을 못 읽음", parse_error: "형식 바뀜", warn: "확인 필요", unavailable: "robots.txt 확인 실패", blocked: "접속 차단됨", robots: "수집 금지 경로", error: "접속 실패", off: "꺼 둠", waiting: "첫 수집 전" };
+  function renderBadge() {
+    const b = $("dataBadge");
+    if (!D) return;
+    if (D.mode === "live") {
+      b.className = "demo is-live" + (isStale() ? " is-stale" : "");
+      b.textContent = `업데이트 ${ago(dataAgeH())}`;
+      b.setAttribute("aria-label", `마지막 수집 ${stamp(D.generatedAt, true)}. 눌러서 새로 불러오기`);
+    } else {
+      b.className = "demo";
+      b.textContent = "예시 데이터";
+      b.setAttribute("aria-label", "예시 데이터예요. 가격과 게시글은 지어낸 것이에요");
+    }
+    $("footNote").innerHTML = `할인율 = (${D.params.minMalls || 3}곳 이상 쇼핑몰의 평균가 − 딜 가격) ÷ 평균가. 평균가는 다나와에 올라온 쇼핑몰별 가격으로 계산하고, 딜을 올린 쇼핑몰과 동떨어진 가격(오등록)은 뺐어요. 판매처가 ${D.params.minMalls || 3}곳보다 적으면 다나와 최저가와 비교해요. 카드 할인·쿠폰은 반영되지 않을 수 있으니 구매 전 최종 가격을 꼭 확인하세요.` +
+      (D.mode === "demo" ? " <b>지금은 예시 데이터라 가격과 글이 실제와 달라요.</b>" : "");
+  }
+  function updateBadges() {
+    if (!D) return;
+    const n = hotScoped().hot.filter(x => !x.ended).length;
+    $("tabBadge").textContent = n;
+    $("tabBadge").hidden = !n;
+    const reached = Object.keys(favs).filter(targetReached).length;
+    $("savedBadge").textContent = reached;
+    $("savedBadge").hidden = !reached;
+  }
+
+  // ── 핫딜 ─────────────────────────────────────────────────
+  function renderNotice() {
+    const n = $("homeNotice");
+    const dn = SRC.danawa;
+    const parts = [];
+    let warn = false;
+    if (D.mode === "live" && isStale()) { warn = true; parts.push(`마지막 수집이 ${ago(dataAgeH())}이에요. 수집이 멈췄다면 GitHub 저장소의 Actions 탭에서 ‘핫딜 수집’ 기록을 확인하세요.`); }
+    if (dn && dn.enabled && ["blocked", "robots", "error", "warn", "unavailable"].includes(dn.status)) {
+      warn = true;
+      parts.push(`다나와 가격 확인에 문제가 있어 새 글 검증이 늦어지고 있어요 (${STATUS_TEXT[dn.status] || dn.status}).`);
+    }
+    if (D.mode === "demo") parts.push("지금은 예시 데이터로 움직여요. 수집기를 연결하면 실제 커뮤니티 글과 쇼핑몰 가격으로 바뀌어요.");
+    if (!parts.length) { n.hidden = true; return; }
+    n.className = "notice" + (warn ? " warn" : "");
+    n.innerHTML = esc(parts.join(" ")) + (warn ? ` <button class="text-btn" type="button" data-go="prefs" style="color:inherit">상태 보기</button>` : "");
+    n.hidden = false;
+  }
+  function firstRunHtml() {
+    const comm = D.sources.filter(s => s.id !== "danawa" && s.enabled);
+    const ok = comm.filter(s => s.status === "ok").length;
+    return `<div class="empty">
+      <h3>첫 수집을 기다리고 있어요</h3>
+      <p>커뮤니티 게시판 ${comm.length}곳 중 ${ok}곳을 읽었어요. 글이 모이면 다나와에서 같은 제품을 찾아 쇼핑몰 평균가와 비교해요. 보통 한두 번 수집하면 핫딜이 보이기 시작해요.</p>
+      <button class="btn" type="button" data-go="prefs">수집 상태 보기</button>
+    </div>`;
+  }
+  function renderDeals() {
+    if (!D) return;
+    renderNotice();
+    const when = stamp(D.generatedAt, D.mode === "live");
+    const commOn = D.sources.filter(s => s.id !== "danawa" && s.enabled && s.status === "ok").length;
+    if (!DEALS.length && !POSTS.length) {
+      $("dealsEyebrow").textContent = `${when} 기준 · 첫 수집 중`;
+      $("dealsTitle").innerHTML = `핫딜을 찾을 <em>준비</em>를 하고 있어요`;
+      $("homeChips").innerHTML = ""; $("homeBar").hidden = true; $("newLine").hidden = true;
+      $("homeList").innerHTML = firstRunHtml();
+      return;
+    }
+    $("homeBar").hidden = false;
+    const { scoped, hot } = hotScoped();
+    const catIds = (interestActive() ? CATS.filter(c => prefs.interests.includes(c.id)) : CATS).map(c => c.id).filter(id => id !== "etc" || hot.some(x => x.cat === "etc"));
+    if (ui.homeCat !== "all" && !catIds.includes(ui.homeCat)) ui.homeCat = "all";
+    $("dealsEyebrow").textContent = `${when} 기준 · 커뮤니티 ${commOn}곳 + 다나와 가격비교 · ${interestActive() ? `관심 제품군 ${prefs.interests.length}개` : "전체 제품군"}`;
+    const live = hot.filter(x => !x.ended);
+    $("dealsTitle").innerHTML = `쇼핑몰 평균가보다 <em>${prefs.threshold}%</em> 이상 싼 핫딜 <b class="num">${live.length}</b>개`;
+
+    const newN = live.filter(isNew).length;
+    const nl = $("newLine");
+    nl.hidden = !newN || ui.homeSort === "new";
+    nl.innerHTML = `<span class="dot" aria-hidden="true"></span><span>${firstVisit ? "최근 3시간 사이" : "지난 방문 뒤"} 새로 뜬 핫딜 <b class="num">${newN}</b>개 보기</span>`;
+
+    const byKind = ui.homeKind === "all" ? hot : hot.filter(x => x.kind === ui.homeKind);
+    $("homeChips").innerHTML = [`<button class="chip" type="button" data-cat="all" aria-pressed="${ui.homeCat === "all"}">${interestActive() ? "관심 전체" : "전체"} <span class="n">${byKind.length}</span></button>`]
+      .concat(catIds.map(id => `<button class="chip" type="button" data-cat="${esc(id)}" aria-pressed="${ui.homeCat === id}">${esc(CAT[id].icon)} ${esc(CAT[id].name)} <span class="n">${byKind.filter(x => x.cat === id).length}</span></button>`)).join("");
+    document.querySelectorAll("#homeSort button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.sort === ui.homeSort)));
+    document.querySelectorAll("#homeKind button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.kind === ui.homeKind)));
+
+    const list = (ui.homeCat === "all" ? byKind : byKind.filter(x => x.cat === ui.homeCat)).slice()
+      .sort((a, b) => (a.ended - b.ended) || SORTS[ui.homeSort](a, b));
+    const maxRate = list.reduce((m, x) => Math.max(m, x.rate), 0);
+    $("homeCount").innerHTML = list.length ? `<b class="num">${list.length}</b>개 · 최대 <b class="num">${Math.floor(maxRate)}%</b>` : "";
+
+    if (!list.length) {
+      const pool = scoped.filter(x => (ui.homeKind === "all" || x.kind === ui.homeKind) && (ui.homeCat === "all" || x.cat === ui.homeCat));
+      const lower = [prefs.threshold - 10, prefs.threshold - 5, 20, 15, 10, 5].find(t => t >= 5 && t < prefs.threshold && pool.some(x => x.rate >= t));
+      const nLower = lower ? pool.filter(x => x.rate >= lower).length : 0;
+      $("homeList").innerHTML = `<div class="empty">
+        <h3>지금 기준을 넘는 핫딜이 없어요</h3>
+        <p>${lower ? `기준을 ${lower}%로 낮추면 ${nLower}개가 보여요.` : "관심 제품군·출처·쇼핑몰 설정을 넓혀 보거나, 커뮤니티 탭에서 비교 결과를 둘러보세요."}</p>
+        <div class="row-btns">${lower ? `<button class="btn primary" type="button" data-set-th="${lower}">기준 ${lower}%로 낮추기</button>` : ""}<button class="btn" type="button" data-go="community">커뮤니티 글 보기</button></div>
+      </div>`;
+    } else {
+      $("homeList").innerHTML = list.slice(0, 300).map(x => card(x)).join("");
+    }
+  }
+
+  // ── 커뮤니티 ───────────────────────────────────────────────
+  function renderCommunity() {
+    if (!D) return;
+    const srcs = D.sources.filter(s => s.id !== "danawa" && (s.enabled || POSTS.some(p => p.source === s.id)));
+    const base = POSTS.filter(p => !(prefs.hideEnded && p.ended) && (!ui.cmpOnly || p.verify.status === "ok"));
+    if (ui.cSrc !== "all" && !srcs.some(s => s.id === ui.cSrc)) ui.cSrc = "all";
+    $("srcChips").innerHTML = [`<button class="chip" type="button" data-csrc="all" aria-pressed="${ui.cSrc === "all"}">전체 <span class="n">${base.length}</span></button>`]
+      .concat(srcs.map(s => {
+        const n = base.filter(p => p.source === s.id).length;
+        const st = statusClass(s.enabled ? s.status : "off");
+        return `<button class="chip" type="button" data-csrc="${esc(s.id)}" aria-pressed="${ui.cSrc === s.id}"><span class="dot-s ${st}" aria-hidden="true"></span>${esc(srcName(s.id))} <span class="n">${n}</span></button>`;
+      })).join("");
+    $("cmpOnly").checked = ui.cmpOnly;
+    $("cHideEnded").checked = prefs.hideEnded;
+    document.querySelectorAll("#cSort button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.csort === ui.cSort)));
+    const sorter = {
+      new: (a, b) => (b.postedAt || 0) - (a.postedAt || 0),
+      discount: (a, b) => (b.verify.rate ?? -999) - (a.verify.rate ?? -999),
+      hot: (a, b) => b.buzz - a.buzz
+    }[ui.cSort];
+    const list = (ui.cSrc === "all" ? base : base.filter(p => p.source === ui.cSrc)).slice().sort(sorter);
+    const checked = list.filter(p => p.verify.status === "ok").length;
+    const hotN = list.filter(p => p.verify.status === "ok" && p.verify.rate >= prefs.threshold).length;
+    $("communitySub").textContent = `핫딜 게시판에 최근 ${D.params.keepHours || 72}시간 동안 올라온 글이에요. 다나와에서 같은 제품을 찾으면 다른 쇼핑몰 평균가와 비교한 결과를 붙였어요.`;
+    $("cCount").innerHTML = list.length ? `글 <b class="num">${won(list.length)}</b>개 · 가격 비교 <b class="num">${checked}</b>개 · 그중 ${prefs.threshold}% 이상 싼 글 <b class="num">${hotN}</b>개` : "";
+    if (!list.length) {
+      $("cList").innerHTML = `<div class="empty"><h3>보여 줄 글이 없어요</h3><p>${POSTS.length ? "필터를 풀어 보세요." : "첫 수집이 끝나면 게시판 글이 여기에 모여요."}</p></div>`;
+      $("cMore").innerHTML = "";
+      return;
+    }
+    $("cList").innerHTML = list.slice(0, ui.cLimit).map(postRow).join("");
+    $("cMore").innerHTML = list.length > ui.cLimit ? `<button class="btn small" type="button" data-cmore>더 보기 (${won(list.length - ui.cLimit)}개 남음)</button>` : "";
+  }
+
+  // ── 검색 ───────────────────────────────────────────────────
+  function renderSearch() {
+    if (!D) return;
+    if ($("q").value !== ui.q) $("q").value = ui.q;
+    $("qClear").hidden = !ui.q;
+    $("hotOnly").checked = ui.hotOnly;
+    $("hotOnlyLabel").textContent = `핫딜만 (${prefs.threshold}%↑)`;
+    $("searchSort").value = ui.searchSort;
+    $("priceRange").value = ui.price;
+    const rc = $("recent");
+    rc.hidden = !recent.length || !!ui.q.trim();
+    rc.innerHTML = `<span>최근 검색</span>` + recent.map(s => `<button class="chip small" type="button" data-q="${esc(s)}">${esc(s)}</button>`).join("") +
+      `<button class="text-btn" type="button" data-clear-recent>지우기</button>`;
+    $("suggest").innerHTML = D.suggest.length && !ui.q.trim()
+      ? `<span>자주 찾는</span>` + D.suggest.map(s => `<button class="chip small" type="button" data-q="${esc(s)}">${esc(s)}</button>`).join("") : "";
+
+    const q = ui.q.trim();
+    const terms = q.toLowerCase().split(/\s+/).filter(Boolean).map(norm);
+    const match = hay => terms.every(t => hay.includes(t));
+    const [lo, hi] = ui.price === "all" ? [0, Infinity] : ui.price.split("-").map((v, i) => (v === "" ? (i ? Infinity : 0) : Number(v)));
+    const items = Object.values(PROD).filter(p => p.lowest && match(p.hay)).map(p => {
+      // 제품에 진행 중인 딜이 있으면 그 딜을, 없으면 다나와 가격으로 보여 준다
+      const deals = (DEALS_BY_PCODE[p.pcode] || []).filter(dealVisible).sort((a, b) => a.price - b.price);
+      return deals[0] || productItem(p);
+    }).filter(x => x.price >= lo && x.price < hi && (x.isProduct || dealVisible(x)));
+    $("searchChips").innerHTML = [`<button class="chip" type="button" data-scat="all" aria-pressed="${ui.searchCat === "all"}">전체 <span class="n">${items.length}</span></button>`]
+      .concat(CATS.filter(c => items.some(x => x.cat === c.id)).map(c => `<button class="chip" type="button" data-scat="${esc(c.id)}" aria-pressed="${ui.searchCat === c.id}">${esc(c.icon)} ${esc(c.name)} <span class="n">${items.filter(x => x.cat === c.id).length}</span></button>`)).join("");
+    let list = ui.searchCat === "all" ? items : items.filter(x => x.cat === ui.searchCat);
+    if (ui.hotOnly) list = list.filter(isHot);
+    const sorter = { discount: SORTS.discount, price: SORTS.price, new: (a, b) => (b.postedAt || 0) - (a.postedAt || 0) }[ui.searchSort] || SORTS.discount;
+    list = list.slice().sort(sorter);
+    const posts = q ? POSTS.filter(p => match(p.hay) && !(prefs.hideEnded && p.ended)).sort((a, b) => (b.postedAt || 0) - (a.postedAt || 0)) : [];
+    const what = q ? `‘${esc(q)}’ ` : "";
+    $("searchCount").innerHTML = list.length || posts.length
+      ? `${what}제품 <b class="num">${won(list.length)}</b>개 · 그중 핫딜 <b class="num">${list.filter(isHot).length}</b>개${q ? ` · 커뮤니티 글 <b class="num">${posts.length}</b>개` : ""}` : "";
+    $("searchList").innerHTML = list.length ? list.slice(0, 120).map(x => card(x)).join("") : (q && !posts.length ? `<div class="empty">
+        <h3>‘${esc(q)}’ 검색 결과가 없어요</h3>
+        <p>${D.mode === "live" ? "아직 지켜보지 않는 제품이에요. 계속 지켜보려면 config.json에서 제품군의 keywords에 이 검색어를 넣어 주세요. 다음 수집부터 다나와에서 가격을 확인해요." : "예시 데이터에는 없는 제품이에요."} 지금 가격은 아래에서 바로 볼 수 있어요.</p>
+        <div class="row-btns">
+          <a class="btn small" href="${esc(danawaSearch(q))}" target="_blank" rel="noopener noreferrer">다나와에서 보기 ↗</a>
+          ${D.mode === "live" ? `<button class="btn small" type="button" data-copy-kw="${esc(q)}">키워드 복사</button>` : ""}
+        </div></div>` : (list.length || posts.length ? "" : `<div class="empty"><h3>조건에 맞는 제품이 없어요</h3><p>${ui.hotOnly ? "‘핫딜만’을 끄거나 " : ""}가격대·제품군 조건을 넓혀 보세요.</p></div>`));
+    $("searchPosts").innerHTML = posts.length ? `<div class="sub-head"><h3>커뮤니티 글</h3><span class="count">${posts.length}개</span></div><div class="posts">${posts.slice(0, 40).map(postRow).join("")}</div>` : "";
+  }
+  function addRecent(q) {
+    q = q.trim();
+    if (q.length < 2) return;
+    recent = [q].concat(recent.filter(x => x !== q)).slice(0, 8);
+    saveRecent();
+  }
+
+  // ── 찜 ───────────────────────────────────────────────────
+  function savedItem(pcode) {
+    const b = bestNow(pcode);
+    if (b && b.deal) return b.deal;
+    return PROD[pcode] ? productItem(PROD[pcode]) : null;
+  }
+  function renderSaved() {
+    if (!D) return;
+    const ids = Object.keys(favs);
+    $("savedNote").textContent = ids.length ? "가격은 진행 중인 커뮤니티 딜과 다나와 최저가 중 낮은 값이에요. 찜한 제품을 수집기가 계속 지켜보게 하려면 설정의 ‘찜한 제품 계속 추적하기’를 쓰세요." : "";
+    if (!ids.length) {
+      $("savedSummary").innerHTML = "";
+      $("savedList").innerHTML = `<div class="empty"><h3>아직 찜한 제품이 없어요</h3><p>딜 카드나 상세 화면의 ♡를 누르면 여기 모여요. 목표가를 정해 두면 그 가격 아래로 내려왔을 때 표시해 드려요.</p><button class="btn" type="button" data-go="deals">핫딜 보러 가기</button></div>`;
+      return;
+    }
+    const present = ids.map(id => [id, savedItem(id)]).filter(([, x]) => x);
+    const missing = ids.filter(id => !savedItem(id));
+    const drop = ([id]) => { const b = bestNow(id); return b ? (favs[id].savedPrice - b.price) / favs[id].savedPrice : -1; };
+    present.sort((a, b) => (targetReached(b[0]) - targetReached(a[0])) || (drop(b) - drop(a)));
+    const reached = present.filter(([id]) => targetReached(id)).length;
+    const down = present.filter(([id]) => { const b = bestNow(id); return b && b.price < favs[id].savedPrice; }).length;
+    $("savedSummary").innerHTML = [
+      `<span class="pill">찜 ${ids.length}개</span>`,
+      reached ? `<span class="pill ok">목표가 도달 ${reached}개</span>` : "",
+      down ? `<span class="pill">찜한 뒤 내린 제품 ${down}개</span>` : ""
+    ].join("");
+    $("savedList").innerHTML = present.map(([id, x]) => card(x, { saved: favs[id] })).join("") + missing.map(id => missingCard(id, favs[id])).join("");
+  }
+  function toggleFav(pcode, from, btn) {
+    if (favs[pcode]) {
+      delete favs[pcode];
+      toast("찜을 해제했어요");
+    } else {
+      const x = (from && itemFor(from)) || (PROD[pcode] ? productItem(PROD[pcode]) : null);
+      if (!x || x.isRawPost) return;
+      const p = PROD[pcode];
+      favs[pcode] = { savedPrice: x.price, savedAt: Date.now(), target: null, name: (p && p.name) || x.danawaName || x.name, mall: x.mall, cat: x.cat, image: x.image || (p && p.image) || "" };
+      toast("찜했어요. 가격이 내려가면 찜 탭에서 보여요");
+    }
+    saveFavs();
+    const on = !!favs[pcode];
+    document.querySelectorAll(`[data-fav="${CSS.escape(pcode)}"]`).forEach(b => {
+      b.setAttribute("aria-pressed", String(on));
+      if (b.classList.contains("fav")) b.setAttribute("aria-label", on ? "찜 해제" : "찜하기");
+    });
+    if (btn && on) { btn.classList.remove("pop"); void btn.offsetWidth; btn.classList.add("pop"); }
+    if (current === "saved") renderSaved();
+    if (sheetKey) renderSheet(true);
+    updateBadges();
+  }
+
+  // ── 설정 ───────────────────────────────────────────────────
+  function renderThreshold() {
+    const t = prefs.threshold, el = $("th");
+    el.value = t;
+    el.style.setProperty("--p", ((t - 5) / 65 * 100) + "%");
+    $("thVal").innerHTML = `${t}<small>%</small>`;
+    $("ticks").innerHTML = [10, 20, 30, 40, 50, 60, 70].map(v => `<button type="button" data-tick="${v}" aria-pressed="${t === v}" aria-label="기준 ${v}%">${v}%</button>`).join("");
+    const pool = DEALS.filter(x => dealVisible(x) && !x.ended);
+    const all = pool.filter(isHot).length;
+    const intr = prefs.interests.length ? pool.filter(x => isHot(x) && prefs.interests.includes(x.cat)).length : null;
+    $("thLive").innerHTML = `지금 기준이면 핫딜 <b class="num">${all}</b>개` + (intr !== null ? ` · 관심 제품군에서 <b class="num">${intr}</b>개` : "");
+    $("hideSuspicious").checked = prefs.hideSuspicious;
+    $("hideEnded").checked = prefs.hideEnded;
+    const sr = D.params.suspiciousRate || 60;
+    const nSus = DEALS.filter(x => x.suspicious).length;
+    $("hideSuspiciousLabel").textContent = `평균가보다 ${sr}% 넘게 싼 딜 숨기기 (가격 오류·다른 구성일 때가 많아요${nSus ? ` · 지금 ${nSus}개` : ""})`;
+  }
+  function renderCats() {
+    const pool = DEALS.filter(x => dealVisible(x) && !x.ended && isHot(x));
+    $("catGrid").innerHTML = CATS.map(c => `<button class="cat-toggle" type="button" data-interest="${esc(c.id)}" aria-pressed="${prefs.interests.includes(c.id)}">
+        <span class="thumb" style="--h:${c.hue}" aria-hidden="true">${esc(c.icon)}</span>
+        <span class="t"><b>${esc(c.name)}</b><span>핫딜 ${pool.filter(x => x.cat === c.id).length}개</span></span>
+      </button>`).join("");
+    $("interestOnly").checked = prefs.interestOnly;
+  }
+  function sourceStatusText(s) {
+    if (!s.enabled) return "수집 꺼 둠 (config.json)";
+    const bits = [STATUS_TEXT[s.status] || s.status];
+    if (s.lastOkAt) bits.push(`마지막 성공 ${agoMs(s.lastOkAt)}`);
+    if (s.count && s.status === "ok") bits.push(`글 ${s.count}개 읽음`);
+    if (s.retryAt && s.retryAt > Date.now()) bits.push(`${ago((s.retryAt - Date.now()) / H).replace("전", "뒤")} 다시 시도`);
+    let txt = bits.join(" · ");
+    if (s.message && s.status !== "ok") txt += ` — ${s.message}`;
+    return txt;
+  }
+  function renderSources() {
+    const okN = D.sources.filter(s => s.enabled && s.status === "ok").length, onN = D.sources.filter(s => s.enabled).length;
+    $("srcPill").textContent = `${okN}/${onN} 정상`;
+    $("srcPill").className = "status-pill" + (okN === onN && onN ? " on" : "");
+    $("srcList").innerHTML = D.sources.map(s => {
+      const st = statusClass(s.enabled ? s.status : "off");
+      const counted = s.id === "danawa" ? DEALS.filter(x => x.kind === "market").length : POSTS.filter(p => p.source === s.id).length;
+      const what = s.id === "danawa" ? `가격비교 발굴 ${counted}개` : `글 ${counted}개`;
+      return `<div class="src-row">
+        <span class="dot-s ${st}" aria-hidden="true"></span>
+        <span class="nm">${s.home ? `<a href="${esc(s.home)}" target="_blank" rel="noopener noreferrer" style="color:inherit">${esc(srcName(s.id))}</a>` : esc(srcName(s.id))}<small>${esc(s.board || "")} · ${what}</small></span>
+        ${s.enabled ? `<label class="switch small"><span class="sr">${esc(srcName(s.id))} 딜 보기</span><input type="checkbox" data-src-toggle="${esc(s.id)}" ${srcOn(s.id) ? "checked" : ""}></label>` : "<span></span>"}
+        <span class="st ${st === "ok" || st === "off" ? "" : st}">${esc(sourceStatusText(s))}</span>
+      </div>`;
+    }).join("");
+  }
+  function renderMalls() {
+    $("mallChips").innerHTML = MALLS.length
+      ? MALLS.map(m => `<button class="chip small" type="button" data-mall="${esc(m)}" aria-pressed="${!prefs.excludedMalls.includes(m)}">${esc(m)}</button>`).join("")
+      : `<span class="help">딜이 모이면 쇼핑몰 목록이 생겨요.</span>`;
+  }
+  function renderAlerts() {
+    const a = D.alerts, on = !!(a && a.enabled);
+    $("alertsPill").textContent = on ? "켜짐" : "꺼짐";
+    $("alertsPill").className = "status-pill" + (on ? " on" : "");
+    const row = (k, v) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
+    if (on) {
+      const cats = (a.categories || []).map(id => (CAT[id] ? CAT[id].name : id));
+      $("alertsHelp").textContent = "수집할 때마다(30분마다) 새로 뜬 핫딜을 텔레그램으로 보내요. 이미 알린 딜은 더 내려갈 때만 다시 알려요. 가격 확인이 필요한 딜과 끝난 딜은 알리지 않아요.";
+      $("alertsFacts").innerHTML = [
+        row("알림 기준", `쇼핑몰 평균가보다 ${esc(a.threshold)}% 이상`),
+        row("제품군", cats.length ? esc(cats.join(", ")) : "전체"),
+        row("키워드", (a.keywords || []).length ? `${esc(a.keywords.join(", "))} (${esc(a.keywordThreshold)}% 이상)` : "없음")
+      ].join("");
+    } else {
+      $("alertsHelp").textContent = "수집기에 텔레그램 봇을 연결하면 새 핫딜이 뜰 때 휴대폰으로 알림이 와요. 방법은 README의 ‘텔레그램 알림 켜기’에 있어요. 아래 버튼으로 지금 설정을 알림 기준으로 복사해 config.json에 붙여 넣을 수 있어요.";
+      $("alertsFacts").innerHTML = "";
+    }
+  }
+  function renderWatch() {
+    const n = Object.keys(favs).length;
+    const tracked = Object.keys(favs).filter(id => PROD[id] && PROD[id].watch).length;
+    $("watchHelp").textContent = n
+      ? `찜은 이 기기에만 저장돼서 수집기는 몰라요. 커뮤니티 글이 사라지면 그 제품은 2주 뒤 지켜보는 목록에서 빠져요. 찜한 ${n}개를 계속 추적하려면 아래 버튼으로 복사해 config.json의 "watch" 줄을 바꾸세요.${tracked ? ` 지금 ${tracked}개는 이미 추적 중이에요.` : ""}`
+      : "제품을 찜하면, 수집기가 그 제품의 다나와 가격을 계속 확인하도록 설정할 수 있어요.";
+    $("copyWatch").disabled = !n;
+  }
+  function renderDataFacts() {
+    const row = (k, v) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
+    const s = D.stats || {}, P = D.params || {};
+    $("dataFacts").innerHTML = [
+      row("데이터", D.mode === "live" ? "핫딜 커뮤니티 글 + 다나와 쇼핑몰별 가격" : "예시 데이터 (실제 아님)"),
+      row("마지막 수집", `${stamp(D.generatedAt, true)} · ${ago(dataAgeH())}`),
+      row("커뮤니티 글", `${won(s.posts || POSTS.length)}개 (가격 비교 ${won(s.verified || 0)}개)`),
+      row("지켜보는 제품", `${won(s.products || Object.keys(PROD).length)}개 · ${P.recheckHours || 6}시간마다 다시 확인`),
+      row("할인율", "(쇼핑몰 평균가 − 딜 가격) ÷ 평균가"),
+      row("쇼핑몰 평균가", `다나와 판매처 ${P.minMalls || 3}곳 이상 평균`),
+      row("빼는 가격", "딜을 올린 쇼핑몰, 중간값의 0.5배 미만·1.8배 초과"),
+      row("가격 확인 필요", `평균보다 ${P.suspiciousRate || 60}% 넘게 쌀 때`)
+    ].join("");
+    $("dataNote").textContent = "양쪽 배송비를 알면 배송비 포함 금액끼리, 모르면 상품 가격끼리 비교해요. 수량이 다르면(예: 12개 vs 24개) 개당 가격으로 맞춰요. 찜과 설정은 이 기기에만 저장돼요.";
+  }
+  function renderPrefs() { if (!D) return; renderThreshold(); renderCats(); renderSources(); renderMalls(); renderAlerts(); renderWatch(); renderDataFacts(); }
+  function setThreshold(v) {
+    prefs.threshold = Math.min(70, Math.max(5, Math.round(v / 5) * 5));
+    savePrefs();
+    renderThreshold();
+    renderCats();
+    updateBadges();
+  }
+  function alertsSnippet() {
+    const a = D.alerts || {};
+    const snippet = {
+      threshold: prefs.threshold, categories: prefs.interestOnly ? prefs.interests : [], keywords: a.keywords || [],
+      keyword_threshold: a.keywordThreshold || 15, max_per_run: 10, renotify_drop: 3, remember_days: 14, min_votes: 0
+    };
+    return `"alerts": ${JSON.stringify(snippet, null, 2)}`;
+  }
+  function armConfirm(btn, label, action) {
+    if (btn.dataset.armed === "1") { btn.dataset.armed = ""; btn.textContent = label; action(); return; }
+    btn.dataset.armed = "1";
+    btn.textContent = "한 번 더 누르면 지워져요";
+    setTimeout(() => { if (btn.dataset.armed === "1") { btn.dataset.armed = ""; btn.textContent = label; } }, 3000);
+  }
+
+  // ── 상세 시트 ───────────────────────────────────────────────
+  function todayKST() { return kst(new Date()).toISOString().slice(0, 10); }
+  function dateLabel(s) {
+    if (s === todayKST()) return "오늘";
+    const [, m, d] = s.split("-").map(Number);
+    return `${m}/${d}`;
+  }
+  function chartSVG(hist, dealPrice, W) {
+    const Hh = 190, L = 4, R = 4, T = 30, B = 26;
+    const pts = (hist || []).filter(h => h[1]);
+    const n = pts.length;
+    if (n < 2) return { html: `<p class="help">가격 기록이 쌓이면 그래프가 보여요. 다나와 가격을 ${(D.params && D.params.recheckHours) || 6}시간마다 확인해요.</p>` };
+    const vals = pts.flatMap(h => [h[1], h[2]]).filter(v => v).concat(dealPrice ? [dealPrice] : []);
+    let lo = Math.min(...vals), hi = Math.max(...vals);
+    const pad = (hi - lo) * 0.14 || hi * 0.05;
+    lo -= pad; hi += pad;
+    const X = i => L + i * (W - L - R) / (n - 1);
+    const Y = v => T + (hi - v) / (hi - lo) * (Hh - T - B);
+    const path = k => { let d = "", pen = false; pts.forEach((h, i) => { if (h[k]) { d += `${pen ? "L" : "M"}${X(i).toFixed(1)},${Y(h[k]).toFixed(1)}`; pen = true; } else pen = false; }); return d; };
+    const low = path(1), avg = path(2);
+    const area = `${low}L${X(n - 1).toFixed(1)},${Hh - B}L${X(0).toFixed(1)},${Hh - B}Z`;
+    const last = pts[n - 1], ex = X(n - 1), ey = Y(last[1]);
+    const grid = [T, (T + Hh - B) / 2, Hh - B].map(y => `<line class="c-grid" x1="${L}" x2="${W - R}" y1="${y}" y2="${y}"/>`).join("");
+    const deal = dealPrice ? (() => { const y = Y(dealPrice); return `<line class="c-deal" x1="${L}" x2="${W - R}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}"/><text class="c-now" x="${L}" y="${(y + (y > Hh - B - 14 ? -6 : 14)).toFixed(1)}">이 딜 ${won(dealPrice)}원</text>`; })() : "";
+    const mid = Math.floor((n - 1) / 2);
+    const html = `<svg viewBox="0 0 ${W} ${Hh}" width="${W}" height="${Hh}" role="img" aria-label="최근 ${n}일 다나와 최저가와 쇼핑몰 평균가. 마지막 최저가 ${won(last[1])}원${last[2] ? `, 평균 ${won(last[2])}원` : ""}">
+      <defs><linearGradient id="gArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" style="stop-color:var(--accent);stop-opacity:.2"/><stop offset="1" style="stop-color:var(--accent);stop-opacity:0"/></linearGradient></defs>
+      ${grid}
+      <path d="${area}" fill="url(#gArea)"/>
+      ${avg ? `<path class="c-avg" d="${avg}"/>` : ""}
+      <path class="c-line" d="${low}"/>
+      ${deal}
+      <circle class="c-dot" cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="5"/>
+      <text class="c-lbl" x="${(W - R).toFixed(1)}" y="${Math.max(12, ey - 12).toFixed(1)}" text-anchor="end">최저 ${won(last[1])}원</text>
+      <text x="${L}" y="${Hh - 6}">${dateLabel(pts[0][0])}</text>
+      <text x="${X(mid).toFixed(1)}" y="${Hh - 6}" text-anchor="middle">${dateLabel(pts[mid][0])}</text>
+      <text x="${W - R}" y="${Hh - 6}" text-anchor="end">${dateLabel(last[0])}</text>
+      <line class="c-guide" y1="${T - 4}" y2="${Hh - B}" visibility="hidden"/>
+      <circle class="c-hover" r="4.5" visibility="hidden"/>
+      <g class="c-tip" visibility="hidden"><rect rx="6" height="20"/><text y="14"></text></g>
+      <rect x="0" y="0" width="${W}" height="${Hh}" fill="transparent"/>
+    </svg>`;
+    return { html, geom: { W, L, R, n, X, Y, pts } };
+  }
+  function wireChart(box, g) {
+    const svg = box.querySelector("svg");
+    if (!svg || !g) return;
+    const guide = svg.querySelector(".c-guide"), dot = svg.querySelector(".c-hover"), tip = svg.querySelector(".c-tip");
+    const tipRect = tip.querySelector("rect"), tipText = tip.querySelector("text");
+    const show = clientX => {
+      const r = svg.getBoundingClientRect();
+      const x = (clientX - r.left) * (g.W / r.width);
+      const i = Math.max(0, Math.min(g.n - 1, Math.round((x - g.L) / (g.W - g.L - g.R) * (g.n - 1))));
+      const h = g.pts[i], cx = g.X(i), cy = g.Y(h[1]);
+      guide.setAttribute("x1", cx); guide.setAttribute("x2", cx);
+      dot.setAttribute("cx", cx); dot.setAttribute("cy", cy);
+      tipText.textContent = `${dateLabel(h[0])} · 최저 ${won(h[1])}${h[2] ? ` · 평균 ${won(h[2])}` : ""}`;
+      const w = tipText.getComputedTextLength() + 16;
+      const tx = Math.max(0, Math.min(g.W - w, cx - w / 2));
+      tipRect.setAttribute("x", tx); tipRect.setAttribute("width", w); tipRect.setAttribute("y", 0);
+      tipText.setAttribute("x", tx + 8);
+      [guide, dot, tip].forEach(el => el.setAttribute("visibility", "visible"));
+    };
+    const hide = () => [guide, dot, tip].forEach(el => el.setAttribute("visibility", "hidden"));
+    svg.addEventListener("pointerdown", e => show(e.clientX));
+    svg.addEventListener("pointermove", e => show(e.clientX));
+    svg.addEventListener("pointerleave", hide);
+  }
+
+  function offersHtml(x, prod) {
+    const offers = prod && prod.offers ? prod.offers.slice().sort((a, b) => a.price - b.price) : null;
+    const head = `<h4>쇼핑몰별 가격 <span>${prod && prod.checkedAt ? `다나와 · ${agoMs(prod.checkedAt)} 확인` : "다나와"}</span></h4>`;
+    if (!offers || !offers.length) return `<section class="box" aria-label="쇼핑몰별 가격">${head}<p class="help">다나와 판매처 목록을 아직 읽지 못했어요. 다음 확인 때 채워져요.</p></section>`;
+    const isComm = x.kind === "community" && !x.isProduct;
+    const rows = [];
+    if (isComm) {
+      rows.push({ price: x.price, html: `<div class="offer is-deal"><span class="o-mall">이 딜 · ${esc(x.mall || "판매처 미상")}<small>${esc(srcName((x.mentions[0] || x).source))} 글${x.shipping ? ` · ${esc(x.shipping)}` : ""}</small></span><span class="o-price">${won(x.price)}원</span><span class="o-diff hot">${x.rate != null ? pct(x.rate) + "%" : ""}</span></div>`, first: true });
+    }
+    const shown = offers.slice(0, 14);
+    shown.forEach(o => {
+      const same = isComm && o.mall === x.mall;
+      const diff = o.price - x.price;
+      const diffTxt = isComm ? (diff > 0 ? `+${won(diff)}` : diff < 0 ? `−${won(-diff)}` : "같음") : (o.mall === x.mall && o.price === x.price ? "최저" : `+${won(diff)}`);
+      rows.push({ price: o.price, html: `<div class="offer${same ? " is-same" : ""}"><span class="o-mall">${esc(o.mall)}<small>${same ? "딜을 올린 쇼핑몰 · 평균에서 뺐어요" : esc(o.shipping || "")}</small></span><span class="o-price">${won(o.price)}원</span><span class="o-diff">${diffTxt}</span></div>` });
+    });
+    if (x.referencePrice) {
+      rows.push({ price: x.referencePrice, avg: true, html: `<div class="offer is-avg"><span class="o-mall">${refLabel(x)}<small>${x.reference === "lowest" ? "판매처가 적어 최저가 기준" : `${x.malls || "?"}곳 기준${x.basis === "total" ? " · 배송비 포함" : ""}`}</small></span><span class="o-price">${won(x.referencePrice)}원</span><span class="o-diff"></span></div>` });
+    }
+    const ordered = rows.filter(r => r.first).concat(rows.filter(r => !r.first).sort((a, b) => a.price - b.price || (a.avg ? 1 : -1)));
+    const more = offers.length > shown.length ? ` 외 ${offers.length - shown.length}곳은 생략했어요.` : "";
+    const total = prod.offerCount && prod.offerCount > offers.length ? ` 다나와 표기 판매처는 ${prod.offerCount}곳이지만, 상품 페이지에 처음 실린 ${offers.length}곳만 읽어요.` : "";
+    return `<section class="box" aria-label="쇼핑몰별 가격">${head}${ordered.map(r => r.html).join("")}
+      <p class="help">카드 할인·쿠폰가는 빠져 있을 수 있어요.${total}${more}</p></section>`;
+  }
+  function mentionsHtml(x, prod) {
+    const ids = new Set(x.mentions.map(m => m.id));
+    const others = prod ? prod.posts.filter(id => !ids.has(id) && POST[id]).map(id => POST[id]) : [];
+    const row = m => `<a class="mention" href="${esc(m.url)}" target="_blank" rel="noopener noreferrer">
+        <span><b>${esc(srcName(m.source))}</b>${m.title ? ` · ${esc(m.title)}` : ""}<small>${agoMs(m.postedAt)}${m.votes != null ? ` · 추천 ${won(m.votes)}` : ""}${m.comments != null ? ` · 댓글 ${won(m.comments)}` : ""}${m.ended ? " · 끝남" : ""}</small></span>
+        <span class="go">글 보기 ↗</span></a>`;
+    let html = "";
+    if (x.mentions.length) html += `<section class="box" aria-label="이 딜이 올라온 게시판"><h4>이 딜이 올라온 게시판 <span>${x.mentions.length}곳</span></h4>${x.mentions.map(m => row({ ...m, title: "" })).join("")}</section>`;
+    if (others.length) html += `<section class="box" aria-label="같은 제품의 다른 글"><h4>같은 제품의 다른 글 <span>${others.length}개</span></h4>${others.slice(0, 6).map(p => row({ ...p, title: p.mall ? `${p.mall} ${p.price ? won(p.price) + "원" : ""}` : "" })).join("")}</section>`;
+    return html;
+  }
+  function verdictText(x) {
+    if (x.rate == null) return "다나와 판매처가 적어 쇼핑몰 평균가를 낼 수 없어요. 쇼핑몰별 가격을 직접 비교해 보세요.";
+    const isComm = x.kind === "community" && !x.isProduct;
+    const refPhrase = x.reference === "lowest"
+      ? `다나와 최저가(${won(x.referencePrice)}원)`
+      : `${isComm ? "이 쇼핑몰을 뺀 " : (x.isProduct ? "나머지 " : "다른 ")}쇼핑몰 ${x.malls || ""}곳 평균(${won(x.referencePrice)}원)`;
+    let t;
+    if (x.save >= 0) {
+      t = `${refPhrase}보다 <b>${won(x.save)}원(${pct(x.rate)}%)</b> 싸요. `;
+      t += isHot(x) ? `내 기준 ${prefs.threshold}%를 넘었어요.` : `내 기준 ${prefs.threshold}%에는 못 미쳐요.`;
+    } else t = `${refPhrase}보다 <b>${won(-x.save)}원</b> 비싸요.`;
+    if (isComm && x.reference === "average" && x.lowest && x.price < x.lowest) t += ` 다나와 최저가(${esc(x.lowestMall)} ${won(x.lowest)}원)보다도 ${won(x.lowest - x.price)}원 싸요.`;
+    if (x.kind === "market" && x.secondPrice && x.secondPrice > x.price) t += ` 두 번째로 싼 곳보다 ${won(x.secondPrice - x.price)}원 싸요.`;
+    return t;
+  }
+  function howHtml(x) {
+    const items = [];
+    if (x.danawaName && x.danawaName !== x.name) items.push(`다나와의 ‘${esc(x.danawaName)}’와 같은 제품으로 보고 비교했어요.`);
+    if (x.matchScore) items.push(`같은 제품 판단 점수 ${Math.round(x.matchScore * 100)}점 (상품명·모델 번호·용량·가격대가 맞는지 따져요)`);
+    items.push(x.basis === "total" ? "배송비를 포함한 금액끼리 비교했어요." : "배송비는 빼고 상품 가격끼리 비교했어요.");
+    if (x.unitAdjusted) items.push("수량이 달라 개당 가격으로 맞춰 비교했어요.");
+    if (x.reference === "lowest" && !x.isProduct) items.push(`판매처가 ${D.params.minMalls || 3}곳보다 적어 평균 대신 다나와 최저가와 비교했어요. 그래서 할인율이 낮게 나와요.`);
+    if (x.kind === "market" && !x.isProduct) items.push("커뮤니티 글이 아니라, 다나와 판매처 목록에서 한 쇼핑몰만 유난히 싼 것을 찾아낸 딜이에요.");
+    return `<ul class="how">${items.map(t => `<li><span>${t}</span></li>`).join("")}</ul>`;
+  }
+
+  let sheetKey = null, sheetPushed = false, lastFocus = null;
+  function renderSheet(keepScroll) {
+    const sheet = $("sheet"), key = sheetKey;
+    const scroll = keepScroll ? sheet.scrollTop : 0;
+    const x = itemFor(key);
+    if (!x) {
+      const pcode = key.startsWith("p:") ? key.slice(2) : null, f = pcode && favs[pcode];
+      if (!f) { closeSheet(); return; }
+      sheet.innerHTML = `${CLOSE}
+        <div class="sh-head">${thumb({ image: f.image || "", cat: f.cat })}
+          <div><p class="meta" style="margin:0"><b>${esc(f.mall || "")}</b></p><h3 id="sheetTitle">${esc(f.name || "")}</h3></div></div>
+        <p class="sh-save">지금은 지켜보는 목록에 없어서 최신 가격을 몰라요. 찜할 때 가격은 ${won(f.savedPrice || 0)}원이었어요. 설정의 ‘찜한 제품 계속 추적하기’로 수집기에 알려 주면 계속 확인해요.</p>
+        <div class="sh-actions">
+          <a class="btn primary" href="${esc(danawaProduct(pcode))}" target="_blank" rel="noopener noreferrer">다나와에서 보기 ↗</a>
+          <button class="btn" type="button" data-fav="${esc(pcode)}" aria-pressed="true">찜 해제</button>
+        </div>`;
+      return;
+    }
+    if (x.isRawPost) { renderPostSheet(x.post); sheet.scrollTop = scroll; return; }
+    const c = CAT[x.cat] || CAT.etc, prod = PROD[x.pcode], f = x.pcode ? favs[x.pcode] : null, hot = isHot(x);
+    const isComm = x.kind === "community" && !x.isProduct;
+    const badgeLabel = x.rate == null ? "비교 부족" : (x.ended ? "끝난 딜" : hot ? (x.suspicious ? "확인 필요" : "핫딜") : stubLabel(x));
+    const warn = [
+      x.suspicious ? `평균가보다 ${D.params.suspiciousRate || 60}% 넘게 싸요. 다른 구성(옵션·리퍼·해외판)이거나 가격 오류일 수 있으니 글과 상품 페이지를 꼭 확인하세요.` : "",
+      x.ended ? "게시판에 품절·종료로 표시된 딜이에요. 지금은 이 가격에 살 수 없을 가능성이 커요." : ""
+    ].filter(Boolean).map(t => `<p class="sh-warn">${t}</p>`).join("");
+    const now = f ? bestNow(x.pcode) : null;
+    const target = f ? `<div class="target">
+        <label for="targetInput">목표가</label>
+        <div class="target-row">
+          <input id="targetInput" type="text" inputmode="numeric" autocomplete="off" placeholder="이 가격 아래로 내려오면 표시해요" value="${f.target ? won(f.target) : ""}">
+          <span>원</span>
+          ${f.target ? `<button class="btn small" type="button" data-target-clear>지우기</button>` : ""}
+        </div>
+        <div class="row-btns">
+          <button class="chip small" type="button" data-target-set="${Math.round(x.price * 0.95 / 100) * 100}">지금보다 5%↓</button>
+          <button class="chip small" type="button" data-target-set="${Math.round(x.price * 0.9 / 100) * 100}">10%↓</button>
+          ${x.referencePrice ? `<button class="chip small" type="button" data-target-set="${Math.round(x.referencePrice * 0.7 / 100) * 100}">평균가의 70%</button>` : ""}
+        </div>
+        <p class="status${f.target && now && now.price <= f.target ? " ok" : ""}">${f.target ? (now && now.price <= f.target ? `지금 가장 싼 값(${won(now.price)}원)이 목표가 이하예요.` : `목표가까지 ${now ? won(now.price - f.target) + "원" : "?"} 남았어요.`) : `찜할 때 가격은 ${won(f.savedPrice)}원이었어요.`}</p>
+      </div>` : "";
+    const facts = [
+      ["쇼핑몰", esc(x.mall || "알 수 없음")],
+      isComm ? ["올라온 곳", esc(x.mentions.map(m => srcName(m.source)).join(", ") || srcName(x.source))] : ["찾은 곳", "다나와 판매처 비교"],
+      x.postedAt && !x.isProduct ? [isComm ? "올라온 시각" : "처음 발견", `${stamp(x.postedAt, true)} · ${agoMs(x.postedAt)}`] : null,
+      x.shipping ? ["배송", esc(x.shipping)] : null,
+      prod && prod.checkedAt ? ["다나와 가격 확인", agoMs(prod.checkedAt)] : null,
+      x.pcode ? ["다나와 상품 번호", esc(x.pcode)] : null
+    ].filter(Boolean).map(([k, v]) => `<div><dt>${k}</dt><dd class="num">${v}</dd></div>`).join("");
+    const primary = isComm && x.url
+      ? `<a class="btn primary" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">딜 글 보기 ↗</a>`
+      : `<a class="btn primary" href="${esc(x.pcode ? danawaProduct(x.pcode) : danawaSearch(x.name))}" target="_blank" rel="noopener noreferrer">다나와에서 보기 ↗</a>`;
+    const secondary = isComm && x.pcode ? `<a class="btn" href="${esc(danawaProduct(x.pcode))}" target="_blank" rel="noopener noreferrer">다나와 가격비교 ↗</a>` : "";
+    sheet.innerHTML = `${CLOSE}
+      <div class="sh-head">
+        ${thumb(x, c)}
+        <div>
+          <p class="meta" style="margin:0"><b>${esc(x.mall || "")}</b><span>${esc(c.name)}</span></p>
+          <h3 id="sheetTitle">${esc(x.name)}</h3>
+          ${isComm && x.title && x.title !== x.name ? `<p class="sh-sub">원래 제목: ${esc(x.title)}</p>` : ""}
+        </div>
+      </div>
+      <div class="sh-price">
+        <div>
+          <p class="sh-label">${x.isProduct ? "지금 다나와 최저가" : isComm ? "이 딜 가격" : "가장 싼 쇼핑몰 가격"}</p>
+          <p class="sh-now">${won(x.price)}<small>원</small></p>
+          <p class="sh-market">${x.referencePrice ? `${refLabel(x)} ${won(x.referencePrice)}원${x.malls ? ` · ${x.malls}곳` : ""}` : "평균가 없음"}</p>
+        </div>
+        <div class="sh-badge${hot && !x.ended ? "" : " is-cold"}">${x.rate != null ? `<span>${pct(x.rate)}<small>%</small></span>` : ""}<em>${badgeLabel}</em></div>
+      </div>
+      <p class="sh-save">${verdictText(x)}</p>
+      ${warn}
+      <div class="sh-tools">
+        ${x.pcode ? `<button class="btn" type="button" data-fav="${esc(x.pcode)}" data-from="${esc(x.key)}" aria-pressed="${!!f}">${HEART}${f ? "찜했어요" : "찜하기"}</button>` : ""}
+        <button class="btn" type="button" data-share>${SHARE}공유하기</button>
+      </div>
+      ${target}
+      ${offersHtml(x, prod)}
+      <figure class="chart"><figcaption>가격 흐름<span class="legend"><span><i></i>다나와 최저가</span><span><i class="avg"></i>쇼핑몰 평균</span></span></figcaption><div id="chartBox"></div></figure>
+      ${mentionsHtml(x, prod)}
+      <section class="box" aria-label="비교 방법"><h4>어떻게 비교했나요</h4>${howHtml(x)}</section>
+      <dl class="facts-list">${facts}</dl>
+      <div class="sh-actions">${primary}${secondary}</div>
+      <p class="sh-note">${D.mode === "live" ? "가격은 수집 시점 기준이에요. 결제 전 쇼핑몰에서 최종 가격과 구성을 꼭 확인하세요." : "예시 데이터라 가격과 글이 실제와 달라요. 링크도 실제 글이 아닐 수 있어요."}</p>`;
+    requestAnimationFrame(() => {
+      const box = $("chartBox");
+      if (!box) return;
+      const width = Math.max(260, Math.round(box.clientWidth || 320));
+      const ch = chartSVG(prod && prod.history, x.isProduct ? null : x.price, width);
+      box.innerHTML = ch.html;
+      wireChart(box, ch.geom);
+      sheet.scrollTop = scroll;
+    });
+  }
+  const REASON_FALLBACK = { pending: "다음 수집 때 다나와에서 같은 제품을 찾아 쇼핑몰 평균가와 비교해요.", error: "다나와 확인 중 오류가 나서 다음 수집 때 다시 해요." };
+  function renderPostSheet(p) {
+    const v = p.verify;
+    const reason = v.reason || REASON_FALLBACK[v.status] || "";
+    const title = { skipped: "가격 비교를 하지 않은 글이에요", nomatch: "같은 제품을 찾지 못했어요", noprice: "다나와 가격을 읽지 못했어요", ok: "평균가를 낼 수 없었어요" }[v.status] || "가격 비교를 기다리고 있어요";
+    const facts = [
+      ["게시판", `${esc(srcName(p.source))}${p.board ? ` · ${esc(p.board)}` : ""}`],
+      ["올라온 시각", p.postedAt ? `${stamp(p.postedAt, true)} · ${agoMs(p.postedAt)}` : "-"],
+      p.mall ? ["쇼핑몰", esc(p.mall)] : null,
+      p.price ? ["가격", p.currency === "KRW" ? `${won(p.price)}원` : `$${(p.price / 100).toFixed(2)}`] : null,
+      p.shipping ? ["배송", esc(p.shipping)] : null,
+      p.votes != null ? ["추천", won(p.votes)] : null,
+      p.comments != null ? ["댓글", won(p.comments)] : null
+    ].filter(Boolean).map(([k, val]) => `<div><dt>${k}</dt><dd class="num">${val}</dd></div>`).join("");
+    $("sheet").innerHTML = `${CLOSE}
+      <div class="sh-head">
+        <span class="thumb" style="--h:${(CAT[p.cat] || CAT.etc).hue}" aria-hidden="true">${esc((CAT[p.cat] || CAT.etc).icon)}</span>
+        <div><p class="meta" style="margin:0"><span class="src" style="--sh:${SRC_HUE[p.source] ?? 220}"><i></i>${esc(srcName(p.source))}</span><span>${agoMs(p.postedAt)}</span>${p.ended ? '<span class="tag end">끝남</span>' : ""}</p>
+          <h3 id="sheetTitle">${esc(p.title)}</h3></div>
+      </div>
+      <section class="box"><h4>${title}</h4><p class="help">${esc(reason)}</p></section>
+      <dl class="facts-list">${facts}</dl>
+      <div class="sh-actions">
+        ${p.url ? `<a class="btn primary" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">글 보기 ↗</a>` : ""}
+        <a class="btn" href="${esc(danawaSearch(p.name || p.title))}" target="_blank" rel="noopener noreferrer">다나와에서 찾아보기 ↗</a>
+      </div>`;
+  }
+  function showSheet(key) {
+    const wrap = $("sheetWrap");
+    const wasOpen = wrap.classList.contains("open");
+    if (!wasOpen) lastFocus = document.activeElement;
+    sheetKey = key;
+    renderSheet(false);
+    wrap.classList.add("open");
+    wrap.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    if (!wasOpen) requestAnimationFrame(() => $("sheet").focus({ preventScroll: true }));
+  }
+  function hideSheet() {
+    const wrap = $("sheetWrap");
+    if (!wrap.classList.contains("open")) return;
+    wrap.classList.remove("open");
+    wrap.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    sheetKey = null;
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+  }
+  const HASH_KIND = { deal: "deal", post: "post", p: "p" };
+  function hashFor(key) { const i = key.indexOf(":"); return key.slice(0, i) + "-" + encodeURIComponent(key.slice(i + 1)); }
+  function keyFromHash(h) {
+    const m = /^(deal|post|p)-(.+)$/.exec(h);
+    return m && HASH_KIND[m[1]] ? m[1] + ":" + m[2] : null;
+  }
+  function openItem(key) {
+    if (sheetKey) { location.replace("#" + hashFor(key)); return; }
+    sheetPushed = true;
+    location.hash = hashFor(key);
+  }
+  function closeSheet() {
+    if (!sheetKey) return;
+    if (sheetPushed && keyFromHash(decodeURIComponent(location.hash.slice(1)))) { sheetPushed = false; history.back(); }
+    else { sheetPushed = false; location.replace("#" + (current || "deals")); }
+  }
+  function setTarget(value) {
+    const pcode = sheetKey && sheetKey.startsWith("p:") ? sheetKey.slice(2) : (itemFor(sheetKey) || {}).pcode;
+    const f = pcode && favs[pcode];
+    if (!f) return;
+    const v = Math.round(Number(String(value).replace(/[^\d]/g, "")));
+    f.target = v > 0 ? v : null;
+    saveFavs();
+    renderSheet(true);
+    updateBadges();
+    if (current === "saved") renderSaved();
+    const now = bestNow(pcode);
+    if (f.target) toast(now && now.price <= f.target ? "지금 가격이 이미 목표가 이하예요" : `목표가 ${won(f.target)}원으로 정했어요`);
+  }
+
+  // ── 공유·복사·알림 ───────────────────────────────────────────
+  let toastTimer = null;
+  function toast(msg) {
+    const t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove("show"), 2400);
+  }
+  async function copyText(text, okMsg) {
+    try { await navigator.clipboard.writeText(text); toast(okMsg); return true; } catch (e) { /* 아래 방법으로 */ }
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand("copy");
+      ta.remove();
+      if (ok) { toast(okMsg); return true; }
+    } catch (e) { /* 복사 불가 */ }
+    toast("이 화면에서는 복사가 막혀 있어요");
+    return false;
+  }
+  async function shareItem(x) {
+    const appLink = TOP && WEB ? location.href.split("#")[0] + "#" + hashFor(x.key) : "";
+    const link = x.url || (x.pcode ? danawaProduct(x.pcode) : "");
+    const vs = x.rate != null && x.referencePrice ? ` · ${refLabel(x)} ${won(x.referencePrice)}원보다 ${Math.max(0, pct(x.rate))}% 저렴` : "";
+    const text = `[핫딜] ${x.name}\n${won(x.price)}원${x.mall ? ` (${x.mall})` : ""}${vs}\n${link}`;
+    if (navigator.share && TOP) {
+      try { await navigator.share({ title: x.name, text, url: appLink || link }); return; }
+      catch (e) { if (e && e.name === "AbortError") return; }
+    }
+    copyText(appLink ? `${text}\n앱에서 보기: ${appLink}` : text, "공유할 내용을 복사했어요");
+  }
+
+  // ── 화면 전환 ───────────────────────────────────────────────
+  const VIEWS = ["deals", "community", "search", "saved", "prefs"];
+  let current = null;
+  function renderView(v) {
+    if (v === "deals") renderDeals();
+    if (v === "community") renderCommunity();
+    if (v === "search") renderSearch();
+    if (v === "saved") renderSaved();
+    if (v === "prefs") renderPrefs();
+  }
+  function renderAll() { renderBadge(); updateBadges(); if (current) renderView(current); if (sheetKey) renderSheet(true); }
+  function route() {
+    if (!D) return;
+    let h = location.hash.replace(/^#/, "");
+    try { h = decodeURIComponent(h); } catch (e) { /* 그대로 둔다 */ }
+    if (h.startsWith("item-")) h = ""; // 예전 버전 주소
+    const key = keyFromHash(h);
+    const base = VIEWS.includes(h) ? h : (key ? (current || "deals") : "deals");
+    if (base !== current) {
+      VIEWS.forEach(name => { $("view-" + name).hidden = name !== base; });
+      document.querySelectorAll(".tabbar a").forEach(a => {
+        if (a.dataset.tab === base) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+      });
+      const first = current === null;
+      current = base;
+      renderView(base);
+      if (!first) window.scrollTo(0, 0);
+    }
+    const ok = key && (itemFor(key) || (key.startsWith("p:") && favs[key.slice(2)]));
+    if (ok) showSheet(key);
+    else {
+      hideSheet();
+      if (key || (h && !VIEWS.includes(h))) location.replace("#" + base);
+    }
+  }
+  function go(v) { if (location.hash === "#" + v) route(); else location.hash = v; }
+
+  // ── 새로고침 ───────────────────────────────────────────────
+  let lastFetchAt = 0, refreshing = false;
+  async function refresh(manual) {
+    if (!D) return;
+    if (D.mode !== "live") { if (manual) toast("예시 데이터예요. 가격과 글은 실제와 달라요"); return; }
+    if (refreshing) return;
+    refreshing = true;
+    if (manual) $("dataBadge").textContent = "확인 중…";
+    const r = await fetchJson("data/deals.json");
+    lastFetchAt = Date.now();
+    refreshing = false;
+    if (r.status === "ok" && !r.json.demo) {
+      const changed = Date.parse(r.json.generatedAt) !== D.generatedAt;
+      if (changed) {
+        try { setData(normalize(r.json, "live")); renderAll(); toast("새 핫딜 정보를 불러왔어요"); }
+        catch (e) { toast("새 데이터를 읽지 못했어요"); }
+      } else if (manual) toast("이미 최신 정보예요");
+    } else if (manual) toast("정보를 불러오지 못했어요. 잠시 뒤 다시 시도하세요");
+    renderBadge();
+  }
+  async function loadDemo() {
+    const inline = inlineDemo();
+    const j = inline || (await fetchJson("data/demo.json")).json;
+    if (!j) { toast("예시 데이터를 찾지 못했어요"); return; }
+    setData(normalize(j, "demo")); current = null; renderBadge(); updateBadges(); route();
+  }
+
+  // ── 이벤트 ───────────────────────────────────────────────────
+  document.addEventListener("click", e => {
+    const t = e.target.closest("button, a, [data-close]");
+    if (!t) return;
+    const d = t.dataset;
+    if (d.retry !== undefined) { boot(); return; }
+    if (d.demo !== undefined) { loadDemo(); return; }
+    if (!D) return;
+    if (d.close !== undefined) { closeSheet(); return; }
+    if (d.open) { openItem(d.open); return; }
+    if (d.fav) { toggleFav(d.fav, d.from, t); return; }
+    if (d.share !== undefined) { const x = sheetKey && itemFor(sheetKey); if (x && !x.isRawPost) shareItem(x); return; }
+    if (d.copyKw) { copyText(`"${d.copyKw}"`, "키워드를 복사했어요. config.json 제품군의 keywords에 붙여 넣으세요"); return; }
+    if (d.go) { go(d.go); return; }
+    if (d.cat) { ui.homeCat = d.cat; renderDeals(); return; }
+    if (d.kind) { ui.homeKind = d.kind; renderDeals(); return; }
+    if (d.sort) { ui.homeSort = d.sort; renderDeals(); if (t.id === "newLine") window.scrollTo({ top: $("homeBar").offsetTop - 8, behavior: "smooth" }); return; }
+    if (d.csrc) { ui.cSrc = d.csrc; ui.cLimit = 60; renderCommunity(); return; }
+    if (d.csort) { ui.cSort = d.csort; renderCommunity(); return; }
+    if (d.cmore !== undefined) { ui.cLimit += 60; renderCommunity(); return; }
+    if (d.scat) { ui.searchCat = d.scat; renderSearch(); return; }
+    if (d.q !== undefined) { ui.q = ui.q === d.q ? "" : d.q; if (ui.q) addRecent(ui.q); renderSearch(); return; }
+    if (d.clearRecent !== undefined) { recent = []; saveRecent(); renderSearch(); return; }
+    if (d.setTh) { setThreshold(Number(d.setTh)); renderDeals(); return; }
+    if (d.tick) { setThreshold(Number(d.tick)); return; }
+    if (d.targetSet) { setTarget(d.targetSet); return; }
+    if (d.targetClear !== undefined) { setTarget(""); return; }
+    if (d.interest) {
+      const id = d.interest, i = prefs.interests.indexOf(id);
+      if (i >= 0) prefs.interests.splice(i, 1); else prefs.interests.push(id);
+      prefs.interests.sort((a, b) => CATS.findIndex(c => c.id === a) - CATS.findIndex(c => c.id === b));
+      savePrefs(); renderCats(); renderThreshold(); updateBadges();
+      return;
+    }
+    if (d.mall) {
+      const m = d.mall, i = prefs.excludedMalls.indexOf(m);
+      if (i >= 0) prefs.excludedMalls.splice(i, 1); else prefs.excludedMalls.push(m);
+      savePrefs(); renderMalls(); renderCats(); renderThreshold(); updateBadges();
+      return;
+    }
+  });
+  document.addEventListener("change", e => {
+    const id = e.target.dataset && e.target.dataset.srcToggle;
+    if (!id || !D) return;
+    const i = prefs.hiddenSources.indexOf(id);
+    if (e.target.checked && i >= 0) prefs.hiddenSources.splice(i, 1);
+    if (!e.target.checked && i < 0) prefs.hiddenSources.push(id);
+    savePrefs(); renderThreshold(); renderCats(); updateBadges();
+    toast(e.target.checked ? `${srcName(id)} 딜을 다시 보여 줘요` : `${srcName(id)} 딜을 숨겼어요`);
+  });
+  // 상품 이미지가 안 열리면 제품군 아이콘으로 바꾼다
+  document.addEventListener("error", e => {
+    const img = e.target;
+    if (img && img.tagName === "IMG" && img.dataset.fallback !== undefined) {
+      const holder = img.parentNode;
+      img.remove();
+      if (holder) holder.textContent = img.dataset.fallback;
+    }
+  }, true);
+
+  $("dataBadge").addEventListener("click", () => refresh(true));
+  $("th").addEventListener("input", e => setThreshold(Number(e.target.value)));
+  $("catAll").addEventListener("click", () => { prefs.interests = CATS.map(c => c.id); savePrefs(); renderPrefs(); updateBadges(); });
+  $("catNone").addEventListener("click", () => { prefs.interests = []; savePrefs(); renderPrefs(); updateBadges(); });
+  $("interestOnly").addEventListener("change", e => { prefs.interestOnly = e.target.checked; savePrefs(); updateBadges(); });
+  $("hideSuspicious").addEventListener("change", e => { prefs.hideSuspicious = e.target.checked; savePrefs(); renderPrefs(); updateBadges(); });
+  $("hideEnded").addEventListener("change", e => { prefs.hideEnded = e.target.checked; savePrefs(); renderPrefs(); updateBadges(); });
+  $("cHideEnded").addEventListener("change", e => { prefs.hideEnded = e.target.checked; savePrefs(); renderCommunity(); updateBadges(); });
+  $("cmpOnly").addEventListener("change", e => { ui.cmpOnly = e.target.checked; ui.cLimit = 60; renderCommunity(); });
+  $("copyAlerts").addEventListener("click", () => { if (D) copyText(alertsSnippet(), "복사했어요. config.json의 alerts 부분을 이 내용으로 바꾸세요"); });
+  $("copyWatch").addEventListener("click", () => {
+    const ids = Object.keys(favs);
+    if (ids.length) copyText(`"watch": ${JSON.stringify(ids)},`, "복사했어요. config.json의 \"watch\" 줄을 이 내용으로 바꾸세요");
+  });
+  $("resetPrefs").addEventListener("click", e => armConfirm(e.currentTarget, "설정 초기화", () => { prefs = { ...DEFAULTS, interests: [], excludedMalls: [], hiddenSources: [] }; savePrefs(); renderPrefs(); updateBadges(); toast("설정을 처음 상태로 돌렸어요"); }));
+  $("clearFavs").addEventListener("click", e => armConfirm(e.currentTarget, "찜 목록 비우기", () => { favs = {}; saveFavs(); renderWatch(); updateBadges(); toast("찜 목록을 비웠어요"); }));
+  $("clearRecent").addEventListener("click", () => { recent = []; saveRecent(); toast("최근 검색을 지웠어요"); });
+
+  let searchTimer = null, recentTimer = null;
+  $("q").addEventListener("input", e => {
+    ui.q = e.target.value;
+    clearTimeout(searchTimer); clearTimeout(recentTimer);
+    searchTimer = setTimeout(renderSearch, 120);
+    recentTimer = setTimeout(() => addRecent(ui.q), 1500);
+  });
+  $("searchForm").addEventListener("submit", e => { e.preventDefault(); addRecent(ui.q); renderSearch(); $("q").blur(); });
+  $("qClear").addEventListener("click", () => { ui.q = ""; renderSearch(); $("q").focus(); });
+  $("hotOnly").addEventListener("change", e => { ui.hotOnly = e.target.checked; renderSearch(); });
+  $("searchSort").addEventListener("change", e => { ui.searchSort = e.target.value; renderSearch(); });
+  $("priceRange").addEventListener("change", e => { ui.price = e.target.value; renderSearch(); });
+  $("sheet").addEventListener("change", e => { if (e.target.id === "targetInput") setTarget(e.target.value); });
+  $("sheet").addEventListener("keydown", e => {
+    if (e.target.id === "targetInput" && e.key === "Enter") { e.preventDefault(); setTarget(e.target.value); }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && sheetKey) { closeSheet(); return; }
+    if (e.key === "Tab" && sheetKey) {
+      const items = [...$("sheet").querySelectorAll("a[href], button, input")].filter(el => !el.disabled && el.offsetParent !== null);
+      if (!items.length) return;
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === $("sheet"))) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      return;
+    }
+    if (e.key === "/" && !sheetKey && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) {
+      e.preventDefault(); go("search"); setTimeout(() => $("q").focus(), 0);
+    }
+  });
+  window.addEventListener("hashchange", route);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") { hiddenAt = Date.now(); markVisit(); return; }
+    if (hiddenAt && Date.now() - hiddenAt > 30 * 60e3) { newCutoff = hiddenAt; renderAll(); }
+    if (Date.now() - lastFetchAt > 10 * 60e3) refresh(false);
+  });
+  window.addEventListener("pagehide", markVisit);
+  setInterval(() => { if (document.visibilityState === "visible" && D) renderBadge(); }, 60e3);
+
+  // ── 홈 화면 앱 (GitHub Pages에서만) ────────────────────────────
+  if (TOP && WEB && !document.getElementById("demo-json")) {
+    [["manifest", "manifest.webmanifest"], ["apple-touch-icon", "icons/apple-touch-icon.png"], ["icon", "icons/icon-192.png"]].forEach(([rel, href]) => {
+      const l = document.createElement("link"); l.rel = rel; l.href = href; document.head.appendChild(l);
+    });
+    if ("serviceWorker" in navigator) window.addEventListener("load", () => { navigator.serviceWorker.register("sw.js").catch(() => {}); });
+  }
+
+  // ── 시작 ───────────────────────────────────────────────────
+  async function boot() {
+    $("dealsTitle").textContent = "핫딜 정보를 불러오는 중이에요";
+    $("homeList").innerHTML = `<p class="loading">핫딜 정보를 불러오는 중…</p>`;
+    const r = await loadData();
+    lastFetchAt = Date.now();
+    let data = null;
+    if (r.mode) { try { data = normalize(r.json, r.mode); } catch (e) { data = null; } }
+    if (!data) {
+      $("dataBadge").textContent = "연결 안 됨";
+      $("dealsEyebrow").textContent = "";
+      $("dealsTitle").textContent = "핫딜 정보를 불러오지 못했어요";
+      $("homeChips").innerHTML = ""; $("homeBar").hidden = true; $("newLine").hidden = true;
+      $("homeList").innerHTML = `<div class="empty"><h3>${r.status === "invalid" ? "데이터 파일 형식이 맞지 않아요" : "인터넷 연결을 확인해 주세요"}</h3>
+        <p>${r.status === "invalid" ? "수집기와 앱의 버전이 맞는지 확인하세요. 수집기를 한 번 다시 실행하면 대부분 해결돼요." : "잠시 뒤 다시 시도하면 대부분 해결돼요."}</p>
+        <div class="row-btns"><button class="btn primary" type="button" data-retry>다시 시도</button><button class="btn" type="button" data-demo>예시 데이터로 둘러보기</button></div></div>`;
+      return;
+    }
+    setData(data);
+    current = null;
+    renderBadge();
+    updateBadges();
+    route();
+  }
+  boot();
+})();
+</script>
+</body>
+</html>

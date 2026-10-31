@@ -1,0 +1,16 @@
+{
+  "name": "핫딜 레이더",
+  "short_name": "핫딜레이더",
+  "description": "핫딜 커뮤니티 글과 쇼핑몰 가격을 모아, 다른 쇼핑몰 평균가보다 크게 싼 딜만 골라 보여 줘요.",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f1f2f5",
+  "theme_color": "#e5321b",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
