@@ -1,0 +1,37 @@
+name: 사이트 구조 점검
+
+# 커뮤니티 게시판이나 다나와 화면이 바뀌어 '글을 못 읽음'·'형식 바뀜' 상태가 뜨면 수동으로 실행하세요.
+# 각 사이트에서 받은 원본 HTML과 해석 결과를 'probe' 아티팩트로 내려받을 수 있어요.
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "(선택) 끝까지 검증해 볼 커뮤니티 글 제목. 예: [쿠팡] 삼성 990 PRO 2TB (189,000원/무료)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: 점검
+        env:
+          TITLE: ${{ github.event.inputs.title }}
+        run: |
+          python -m collector.probe all | tee probe.txt
+          if [ -n "$TITLE" ]; then python -m collector.probe match "$TITLE" | tee -a probe.txt; fi
+          mkdir -p data/debug && cp probe.txt data/debug/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: probe
+          path: data/debug
+          retention-days: 7
