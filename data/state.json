@@ -1,0 +1,3784 @@
+{
+ "danawa": {
+  "detail": "https://search.danawa.com/dsearch.php?query=%EC%97%90%EB%A5%B4%EB%A9%94%EC%8A%A4%20%EB%96%BC%EB%A5%B4%20%EB%8D%B0%EB%A5%B4%EB%A9%94%EC%8A%A4%20%EB%A7%A8%20%EC%98%A4%EB%93%9C%EB%9A%9C%EC%99%88%EB%A0%9B",
+  "message": "다나와 접속에 실패했어요",
+  "requests": 30,
+  "searchEmpty": 0,
+  "searchStrategy": "links",
+  "status": "error"
+ },
+ "keywords": {
+  "PS5": "2026-11-13T19:46:52+09:00",
+  "SSD": "2026-11-14T14:57:19+09:00",
+  "갤럭시 S25": "2026-11-14T08:48:20+09:00",
+  "갤럭시탭": "2026-11-14T08:48:20+09:00",
+  "게임 컨트롤러": "2026-11-14T03:28:04+09:00",
+  "공기청정기": "2026-11-14T22:21:23+09:00",
+  "그래픽카드": "2026-11-14T14:57:19+09:00",
+  "기계식 키보드": "2026-11-14T22:21:23+09:00",
+  "노이즈캔슬링 헤드폰": "2026-11-15T03:49:26+09:00",
+  "노트북": "2026-11-15T03:49:26+09:00",
+  "닌텐도 스위치 2": "2026-11-14T03:28:04+09:00",
+  "라면": "2026-11-13T11:51:18+09:00",
+  "러닝화": "2026-11-13T07:25:24+09:00",
+  "로봇청소기": "2026-11-14T22:21:23+09:00",
+  "모니터": "2026-11-12T16:36:42+09:00",
+  "무선 마우스": "2026-11-13T01:11:27+09:00",
+  "무선 이어폰": "2026-11-13T01:11:27+09:00",
+  "무선청소기": "2026-11-14T22:21:23+09:00",
+  "밀폐용기": "2026-11-14T03:28:04+09:00",
+  "백팩": "2026-11-13T07:25:24+09:00",
+  "보조배터리": "2026-11-14T08:48:20+09:00",
+  "블루투스 스피커": "2026-11-13T01:11:27+09:00",
+  "생수 2L": "2026-11-13T19:46:52+09:00",
+  "선크림": "2026-11-13T07:25:24+09:00",
+  "스마트워치": "2026-11-13T01:11:27+09:00",
+  "아이패드": "2026-11-14T14:57:19+09:00",
+  "아이폰 17": "2026-11-14T14:57:19+09:00",
+  "에어프라이어": "2026-11-15T03:49:26+09:00",
+  "운동화": "2026-11-13T11:51:18+09:00",
+  "제습기": "2026-11-15T03:49:26+09:00",
+  "즉석밥": "2026-11-13T19:46:52+09:00",
+  "캠핑의자": "2026-11-13T11:51:18+09:00",
+  "커피 캡슐": "2026-11-13T19:46:52+09:00",
+  "커피머신": "2026-11-14T03:28:04+09:00",
+  "토너": "2026-11-13T07:25:24+09:00",
+  "패딩": "2026-11-13T11:51:18+09:00",
+  "프라이팬": "2026-11-14T08:48:20+09:00"
+ },
+ "lastRun": "2026-11-15T03:49:26+09:00",
+ "searchCache": {
+  "1 등급 한우 불고기 1.2kg": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "32172650",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "74254361",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "103602164",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "32193020",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "95925965",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "103602689",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "32192900",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "105185855",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "32174636",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "104953580",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "74254358",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "95925923",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "AHC 마스터즈 에어리치 선스틱 14g 2개": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "20397698",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "Google Play 기프트코드 10만원권": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": []
+  },
+  "NEW 발뮤다 더 토스터 화이트 K11B": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "68919071",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "76155818",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "13221764",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "31474424",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "NS2 몬스터헌터 와일즈 디럭스 에디션 예약 판매": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": []
+  },
+  "PAT 어반클라우드 기모 코튼터치 골덴 슬랙스": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "93741962",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "121782731",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97383809",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124747300",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "121351303",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "75623300",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "118488153",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124118948",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123550493",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122971657",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "28610216",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123569429",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "PAT 클라우드 긴팔 카라티셔츠": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": []
+  },
+  "PS5 포탈 플레이어 미드나이트 블랙 예약 판매": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": []
+  },
+  "SSD": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "98242505",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "74056493",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "79402061",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "18297002",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "69869543",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "17788487",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "17000984",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "78716702",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102411863",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "18518834",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "13190573",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "74118173",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "U 알뜰폰 마블링프라임 11gb 매일 2gb 3mbps": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "20535848",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "20481503",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "21648341",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "20587007",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "93015059",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "106729718",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "20461235",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "20690345",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "21443159",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "17314766",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "갤럭시 S25": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123845771",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123973418",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "75001853",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "79401875",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123845999",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102126383",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123972593",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123973417",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123973419",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97124351",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "74888870",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "74970263",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "갤럭시탭": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "103694672",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "101631950",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124480206",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "100190723",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122692708",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "101956037",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124364951",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "78982952",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124364979",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "96985325",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "78982958",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124364969",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "경북 샤인머스켓 2kg 5수": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": []
+  },
+  "공기청정기": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "3521947",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123436513",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124567006",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123436529",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106704350",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123436549",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123436887",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122622642",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123436619",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "79386437",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123695642",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "13201049",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "구글플레이 기프트코드 1 5만원권 11 12": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "5445433",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "그래픽카드": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122676813",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "85410707",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "77379380",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "89732453",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "86814989",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "75541700",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "91768979",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "75184250",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "91909571",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "101725832",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90160715",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "96776702",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "기계식 키보드": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "94026476",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122722772",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "63466976",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108423050",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "13363190",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97122362",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "70003601",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "61437527",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90642845",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "36708812",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122722759",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122721926",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "끌올 경기미 고시히카리 10kg 특등급 외 쌀들": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": []
+  },
+  "나랑드사이다 345ml x 24캔": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "16495520",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "16495598",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "남여공용 방한 보아털 기모팬츠": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": []
+  },
+  "낫소 패딩 방한슬립온": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "10037067",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "11944653",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "11944683",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "11944734",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "노이즈캔슬링 헤드폰": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "28837895",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99736994",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "92622830",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "109481933",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106735043",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "19160999",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "31465013",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "68246453",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "32855384",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99641561",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "17229284",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "91118831",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "노트북": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "91766357",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122626964",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122624573",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "103453760",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124012178",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122627065",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122639417",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "103451483",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106767164",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124481553",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "109598213",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90576179",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "닥터필 브라이트닝 글루타치온 &글루타치온 필름 선물세트 3박스입": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "75069656",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "96755012",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "44311976",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "96586226",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "대구 북성로식 초대용량 무뼈 양념 닭발 1KG": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "74376071",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "32167025",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "32188631",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "도도한나쵸 오리지널 치즈맛 92g 12입": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "42282164",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "독거미 AULA F87Pro V2 8K 저소음 솜사탕축": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122722759",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122722753",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124719739",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "따블라면 짜장맛 3컵 얼큰소고기맛 3컵": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": []
+  },
+  "라인바싸 스위트 500ml 2박스 총 40입": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "11536556",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "14681249",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "14200469",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123982221",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "92187311",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "21702470",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123981966",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90266549",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "55791959",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123994299",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123982129",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123982215",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "로봇청소기": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122638042",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108229415",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108367196",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124468606",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124468646",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "107723801",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124034050",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106736861",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "107769194",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "92104061",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106687076",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106758626",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "마이핫 보온대 160g 30개": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "10180044",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99887225",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "68786480",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "매직캔 냄새차단 쓰레기통 휴지통 히포2 크롬 오토실링": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "110572600",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "모나리자 미니각티슈 200매 12개 마스크팩 세트": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "104950301",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "무선청소기": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123436555",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "96774743",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "18868094",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123774957",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "7844290",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "76463927",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "94883180",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123803736",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123803664",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "17785652",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "15868880",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "14848211",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "보조배터리": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "42284972",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "93181199",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122616577",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "100693478",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "105181937",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102005810",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "78715697",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "103750016",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "78846446",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "104626433",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "18932096",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "91346429",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "뷰카 고불소 구취케어 아쿠아민트향 112g 8개 잇몸치약": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "21731678",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "104055587",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "블랙야크 기본 기능성 남여 카라티": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": []
+  },
+  "블루베리 퓨레 14포 1박스": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108219059",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108219080",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "107777024",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108218939",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "107777039",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "107777186",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108351731",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "107776760",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108219140",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "107777075",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "107777258",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "107777072",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "비타500 제로 에이스 100ml 20병": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": []
+  },
+  "산파트리지오 엑스트라버진 올리브오일 750ml 2개": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": []
+  },
+  "삼다수 그린 무라벨 500ml 40개입": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "14756399",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "삼양 우지 1963or짜르르 멀티팩1봉 4입": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122725685",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99905858",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122680161",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124288529",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124289098",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124336103",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124350278",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124336096",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124336827",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "서귀포 농장 산지직송 감귤 10kg": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": []
+  },
+  "숨 순수 소프트 3겹 30m 30롤 2팩": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124117344",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "스위치 캐슬바니아 벨몬트의 저주 미드나이트 에디션 유배": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": []
+  },
+  "스위치 테일즈 오브 이터니아 리마스터": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": []
+  },
+  "스팸 클래식 라이트 340g x10개 골라담기": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": []
+  },
+  "신선집중 단감 5kg 실중량": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "124607703",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "124673448",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "아이더 라벨르 여성 캐시미어 미들 코트 구스다운자켓": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": []
+  },
+  "아이패드": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106746428",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "77313098",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124683700",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99051176",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106746593",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99051092",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "71155355",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124683880",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "16539251",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106746605",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "49645481",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124480590",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "아이폰 17": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102003509",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "101956046",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102002939",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97406282",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102003542",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97406822",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97406108",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102003617",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102003002",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106746263",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102003572",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "102002816",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "앤드지 26FW 도톰한 카라넥 니트": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124003382",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123999500",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124315084",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123916417",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124118033",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124223810",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124538868",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124457181",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124428458",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124404058",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124208928",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124204484",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "양송이 크림스프 150g 5봉": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "13105181",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122635757",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "에센셜 긴팔티": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97689506",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124104285",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123680767",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "92431373",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97691804",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97131617",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "96315854",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "103455344",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123911386",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123814455",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124166357",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123737684",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "에스트라 아토베리어365 크림 80ml 4개": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "37394498",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "30634214",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "113311685",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123650508",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "에어프라이어": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "32156642",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124182087",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108365732",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "62164070",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122616605",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "70768316",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "72816731",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "122625383",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124469402",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99557921",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124568601",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "15731903",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "오뚜기 진라면 약간매운맛 120g 10개": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "92997062",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "잘풀리는집 순수클로버 천연펄프 화장지 27m 60롤": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "57483710",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "제습기": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123695138",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123695329",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "16845077",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123695334",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123695344",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123695383",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "106688684",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "13943012",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "55800935",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "17265962",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "93697988",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123695449",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "제주 서귀포 타이벡 조생 감귤 5kg": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": []
+  },
+  "조선호텔 특제육수 포기김치 4kg": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "5403172",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "66045788",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "66033914",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "지오다노 남자 기모 테이퍼드 치노 팬츠 5color": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": []
+  },
+  "질레트 울트라면도날 16개입 프로글라이드 12입": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "45005402",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "찍먹 나쵸 치폴레마요 포카칩 오리지널 총 20봉": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": []
+  },
+  "카밀 핸드크림 133ml 5개 프로텍트 20ml": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": []
+  },
+  "켈로그 프로틴 그래놀라 제로슈거 350g 1팩 1팩": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "91420388",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "코오롱스포츠 남성 경량 다운": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99290471",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "68440109",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99326366",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99326381",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124350802",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124226302",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99326396",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "99886625",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "68440118",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "117329744",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "124226331",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "115512119",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "코카콜라 오리지널 900ml 6개": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "15885542",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "크라운 쿠크다스 쵸코케이크 202G 3개": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "123804144",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "폴햄 사계절 사방스판 면바지 3종": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": []
+  },
+  "푸마 주니어 기모바지 2개세트": {
+   "at": "2026-11-14T22:21:23+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "20878856",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90282611",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "119539072",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90292688",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90292478",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90290561",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90292892",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90293204",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "114698889",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90290624",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "32118839",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "90292949",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "프라이팬": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "11722739",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "10840098",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "12614936",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "8132083",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "101371748",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "101661299",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "6821236",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "104043983",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "101650337",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "104228843",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "108356642",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "97308911",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "필립스 보풀제거기 GC-026": {
+   "at": "2026-11-14T14:57:19+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "2334838",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "6489955",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "할리스 시그니처 아메리카노 마일드 200개": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "가격비교",
+     "options": [],
+     "pcode": "124745206",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "해태 홈런볼 128g 6개": {
+   "at": "2026-11-14T08:48:20+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "7639327",
+     "price": null,
+     "variant": []
+    }
+   ]
+  },
+  "히든 퍼퓸 스프레이 바디로션 1 1": {
+   "at": "2026-11-15T03:49:26+09:00",
+   "items": [
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "19265345",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "44890661",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "19607795",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "18755597",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "112320786",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "73882262",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "70943504",
+     "price": null,
+     "variant": []
+    },
+    {
+     "image": "",
+     "malls": null,
+     "name": "이미지 보기",
+     "options": [],
+     "pcode": "121250727",
+     "price": null,
+     "variant": []
+    }
+   ]
+  }
+ },
+ "sources": {
+  "arcalive": {
+   "count": 26,
+   "detail": "https://arca.live/b/hotdeal: 사이트가 요청을 막음 (HTTP 403)",
+   "lastOk": "2026-11-05T16:15:42+09:00",
+   "message": "사이트가 자동 접속을 막았어요. 6시간 뒤 다시 시도해요",
+   "retryAfter": "2026-11-15T04:21:23+09:00",
+   "status": "blocked"
+  },
+  "clien": {
+   "count": 29,
+   "detail": null,
+   "lastOk": "2026-11-15T03:49:26+09:00",
+   "message": "",
+   "retryAfter": null,
+   "status": "ok"
+  },
+  "coolenjoy": {
+   "message": "robots.txt를 확인할 수 없어 이번에는 건너뛰었어요",
+   "status": "unavailable"
+  },
+  "damoang": {
+   "count": 20,
+   "detail": null,
+   "lastOk": "2026-11-15T03:49:26+09:00",
+   "message": "",
+   "retryAfter": null,
+   "status": "ok"
+  },
+  "fmkorea": {
+   "message": "사이트의 robots.txt가 자동 수집을 허용하지 않아 읽지 않아요",
+   "retryAfter": "2026-11-16T03:49:26+09:00",
+   "status": "robots"
+  },
+  "ppomppu": {
+   "count": 15,
+   "detail": null,
+   "lastOk": "2026-11-15T03:49:26+09:00",
+   "message": "",
+   "retryAfter": null,
+   "status": "ok"
+  },
+  "ppomppu_overseas": {
+   "message": "설정에서 꺼 두었어요",
+   "status": "off"
+  },
+  "quasarzone": {
+   "detail": "https://quasarzone.com/bbs/qb_saleinfo: 사이트가 요청을 막음 (HTTP 403)",
+   "message": "사이트가 자동 접속을 막았어요. 6시간 뒤 다시 시도해요",
+   "retryAfter": "2026-11-15T04:21:23+09:00",
+   "status": "blocked"
+  },
+  "ruliweb": {
+   "count": 28,
+   "detail": null,
+   "lastOk": "2026-11-15T03:49:26+09:00",
+   "message": "",
+   "retryAfter": null,
+   "status": "ok"
+  }
+ }
+}
