@@ -1,0 +1,1637 @@
+{
+ "100000622": {
+  "addedAt": "2026-11-21T02:11:01+09:00",
+  "cat": "beauty",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/622/000/100/6ed967c43a99420ca654ca3102df70a9.jpg?shrink=500:500&_v=20261122050504",
+  "keyword": "선크림",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 26100,
+  "market": null,
+  "name": "라운드랩 자작나무 수분 선크림 50ml (3개)",
+  "offerCount": 70,
+  "offers": [],
+  "pcode": "100000622",
+  "seenAt": "2026-11-21T02:11:01+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "103598192": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/192/598/103/0af63b89c9fd4a36882b2eb880b8e75a.jpg?shrink=500:500&_v=20261122033601",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 46400,
+  "market": null,
+  "name": "일리 디카페인 (네스프레소 호환) 캡슐커피 10캡슐 (6팩)",
+  "offerCount": 1,
+  "offers": [],
+  "pcode": "103598192",
+  "seenAt": "2026-11-18T20:26:27+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "104974223": {
+  "addedAt": "2026-11-21T13:13:42+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/223/974/104/4b7a40991d644c419e7849c14f4bf68e.webp?shrink=500:500&_v=20261122045507",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 24720,
+  "market": {
+   "average": 32880,
+   "basis": "total",
+   "bestMall": "옥션",
+   "bestPrice": 25720,
+   "bestShipping": "무료배송",
+   "malls": 10,
+   "othersAverage": 33680,
+   "rate": 23.6,
+   "secondPrice": 26560,
+   "since": "2026-11-22T05:00:18+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "CJ제일제당 햇반 윤기가득쌀밥 210g (24개)",
+  "offerCount": 964,
+  "offers": [
+   {
+    "fee": 24720,
+    "mall": "G마켓",
+    "price": 24720,
+    "shipping": "배송비 24,720원"
+   },
+   {
+    "fee": 24985,
+    "mall": "해피리스 네이버페이",
+    "price": 24985,
+    "shipping": "배송비 24,985원"
+   },
+   {
+    "fee": 0,
+    "mall": "옥션",
+    "price": 25720,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "롯데ON",
+    "price": 26560,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "11번가",
+    "price": 27900,
+    "shipping": "빠른배송 일정 시간 안에 주문한 건에 한하여 당일 발송하는 빠른배송 상품입니다. 주문 시간에 따른 정확한 발송정보는 쇼핑몰 상품 상세페이지에서 꼭 확인해주세요. 무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "하프클럽",
+    "price": 28430,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "홈&쇼핑",
+    "price": 29610,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "주식회사 신세계라이브쇼핑",
+    "price": 29950,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "SSG닷컴",
+    "price": 30374,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "SK스토아",
+    "price": 30880,
+    "shipping": "무료배송"
+   }
+  ],
+  "pcode": "104974223",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "109550489": {
+  "addedAt": "2026-11-21T13:13:42+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/489/550/109/a162aaf29a754c7abd6b7ab67d77c0a2.webp?shrink=500:500&_v=20261122041333",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 16320,
+  "market": null,
+  "name": "CJ제일제당 햇반 윤기가득쌀밥 210g (12개)",
+  "offerCount": 67,
+  "offers": [],
+  "pcode": "109550489",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "109836080": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/080/836/109/ce5e2ea1a9f144b5945903b16b87e877.jpg?shrink=500:500&_v=20261121080522",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 28980,
+  "market": null,
+  "name": "일리 디카페인 (네스프레소 호환) 캡슐커피 10캡슐 (3팩)",
+  "offerCount": 2,
+  "offers": [
+   {
+    "fee": 0,
+    "mall": "옥션",
+    "price": 29940,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "G마켓",
+    "price": 29950,
+    "shipping": "무료배송"
+   }
+  ],
+  "pcode": "109836080",
+  "seenAt": "2026-11-18T20:26:27+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "11051712": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/712/051/011/8f876d779cc74dc39040995c56d95cf6.png?shrink=500:500&_v=20261121080522",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 24130,
+  "market": {
+   "average": 38770,
+   "basis": "total",
+   "bestMall": "G마켓",
+   "bestPrice": 34020,
+   "bestShipping": "무료배송",
+   "malls": 3,
+   "othersAverage": 41140,
+   "rate": 17.3,
+   "secondPrice": 34020,
+   "since": "2026-11-21T21:56:02+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "일리 인텐소 다크 캡슐커피 21캡슐 (2팩)",
+  "offerCount": 3,
+  "offers": [
+   {
+    "fee": 24130,
+    "mall": "illy store 네이버페이",
+    "price": 24130,
+    "shipping": "배송비 24,130원"
+   },
+   {
+    "fee": 0,
+    "mall": "G마켓",
+    "price": 34020,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "옥션",
+    "price": 34020,
+    "shipping": "무료배송"
+   }
+  ],
+  "pcode": "11051712",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "110794405": {
+  "addedAt": "2026-11-21T13:13:42+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/405/794/110/5d07a7f890ca40618dde017090d955d6.jpg?shrink=500:500&_v=20261122033552",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 300200,
+  "market": null,
+  "name": "동서식품 카누 젠틀 스카이 10개입 (40개)",
+  "offerCount": 1,
+  "offers": [
+   {
+    "fee": null,
+    "mall": "CJ온스타일",
+    "price": 300200,
+    "shipping": "300,200 원"
+   }
+  ],
+  "pcode": "110794405",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "11155527": {
+  "addedAt": "2026-11-21T02:11:01+09:00",
+  "cat": "beauty",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/527/155/011/89b1e86df368488ca348efbaa1330d09.jpg?shrink=500:500&_v=20261122050444",
+  "keyword": "선크림",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 12370,
+  "market": null,
+  "name": "라운드랩 자작나무 수분 선크림 50ml (1개)",
+  "offerCount": 577,
+  "offers": [],
+  "pcode": "11155527",
+  "seenAt": "2026-11-21T02:11:01+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "11187753": {
+  "addedAt": "2026-11-18T05:44:01+09:00",
+  "cat": "beauty",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/753/187/011/7641b4203fbe4cbbace5e1676fab330b.jpg?shrink=500:500&_v=20261122050632",
+  "keyword": "선크림",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 9900,
+  "market": {
+   "average": 13920,
+   "basis": "total",
+   "bestMall": "G마켓",
+   "bestPrice": 9903,
+   "bestShipping": "배송비 3원",
+   "malls": 9,
+   "othersAverage": 14430,
+   "rate": 31.4,
+   "secondPrice": 10103,
+   "since": "2026-11-22T05:00:18+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "닥터지 그린 마일드 업 선 플러스 50ml (1개)",
+  "offerCount": 297,
+  "offers": [
+   {
+    "fee": 3,
+    "mall": "G마켓",
+    "price": 9900,
+    "shipping": "배송비 3원"
+   },
+   {
+    "fee": 3,
+    "mall": "옥션",
+    "price": 10100,
+    "shipping": "배송비 3원"
+   },
+   {
+    "fee": 2000,
+    "mall": "11번가",
+    "price": 10330,
+    "shipping": "배송비 2,000원"
+   },
+   {
+    "fee": 2000,
+    "mall": "롯데ON",
+    "price": 12190,
+    "shipping": "배송비 2,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "SSG닷컴",
+    "price": 12369,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "패션플러스",
+    "price": 13110,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "이마트몰",
+    "price": 13300,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "하니 스토어 네이버페이",
+    "price": 13900,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 0,
+    "mall": "주식회사 신세계라이브쇼핑",
+    "price": 14100,
+    "shipping": "무료배송"
+   }
+  ],
+  "pcode": "11187753",
+  "seenAt": "2026-11-18T05:44:01+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "11203785": {
+  "addedAt": "2026-11-18T11:49:17+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/785/203/011/89df2fe348584aecbe517bbab4177f42.jpg?shrink=500:500&_v=20261122043729",
+  "keyword": "라면",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 4030,
+  "market": {
+   "average": 9130,
+   "basis": "total",
+   "bestMall": "G마켓",
+   "bestPrice": 5812,
+   "bestShipping": "배송비 12원",
+   "malls": 9,
+   "othersAverage": 9540,
+   "rate": 39.1,
+   "secondPrice": 5812,
+   "since": "2026-11-22T05:00:18+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "백제 멸치맛 쌀국수 92g (5개)",
+  "offerCount": 108,
+  "offers": [
+   {
+    "fee": 4900,
+    "mall": "11번가",
+    "price": 4030,
+    "shipping": "배송비 4,900원"
+   },
+   {
+    "fee": 12,
+    "mall": "G마켓",
+    "price": 5800,
+    "shipping": "배송비 12원"
+   },
+   {
+    "fee": 12,
+    "mall": "옥션",
+    "price": 5800,
+    "shipping": "배송비 12원"
+   },
+   {
+    "fee": 3000,
+    "mall": "동남물산 가락몰 네이버페이",
+    "price": 6840,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "하프클럽",
+    "price": 7180,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "보리보리",
+    "price": 7180,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "롯데ON",
+    "price": 7200,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "SSG닷컴",
+    "price": 7590,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "이마트몰",
+    "price": 7590,
+    "shipping": "배송비 3,000원"
+   }
+  ],
+  "pcode": "11203785",
+  "seenAt": "2026-11-21T08:17:51+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "1152041": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/041/152/001/a23b069e0f9344ada3a13019aeeb2de1.jpg?shrink=500:500&_v=20261122034857",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 903,
+  "market": {
+   "average": 4010,
+   "basis": "total",
+   "bestMall": "옥션",
+   "bestPrice": 3970,
+   "bestShipping": "배송비 3,000원",
+   "malls": 5,
+   "othersAverage": 4010,
+   "rate": 1.0,
+   "secondPrice": 3970,
+   "since": "2026-11-22T05:00:18+09:00",
+   "skippedOutliers": 2
+  },
+  "name": "오뚜기 맛있는 오뚜기밥 흰밥 210g (1개)",
+  "offerCount": 90,
+  "offers": [
+   {
+    "fee": 903,
+    "mall": "킹스랜드 네이버페이",
+    "price": 903,
+    "shipping": "배송비 903원"
+   },
+   {
+    "fee": 3000,
+    "mall": "옥션",
+    "price": 970,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "G마켓",
+    "price": 970,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "배민상회",
+    "price": 1008,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "11번가",
+    "price": 1030,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "롯데ON",
+    "price": 1050,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 4,
+    "mall": "아이마켓",
+    "price": 1551,
+    "shipping": "배송비 4원"
+   },
+   {
+    "fee": 6000,
+    "mall": "패션플러스",
+    "price": 1650,
+    "shipping": "배송비 6,000원"
+   },
+   {
+    "fee": 6000,
+    "mall": "SK스토아",
+    "price": 1670,
+    "shipping": "배송비 6,000원"
+   },
+   {
+    "fee": 6000,
+    "mall": "하프클럽",
+    "price": 1680,
+    "shipping": "배송비 6,000원"
+   }
+  ],
+  "pcode": "1152041",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "1152042": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/042/152/001/cb4742dece374f0a8b5c08b691a28de6.jpg?shrink=500:500&_v=20261122033640",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 2850,
+  "market": null,
+  "name": "오뚜기 맛있는 오뚜기밥 흰밥 210g (3개)",
+  "offerCount": 50,
+  "offers": [],
+  "pcode": "1152042",
+  "seenAt": "2026-11-18T20:26:27+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "1152054": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/054/152/001/75bfef8375274ac4aaa3c96f50690f24.jpg?shrink=500:500&_v=20261122050839",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 20970,
+  "market": null,
+  "name": "오뚜기 맛있는 오뚜기밥 흰밥 210g (24개)",
+  "offerCount": 1765,
+  "offers": [],
+  "pcode": "1152054",
+  "seenAt": "2026-11-18T20:26:27+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "11553623": {
+  "addedAt": "2026-11-18T05:44:01+09:00",
+  "cat": "beauty",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/623/553/011/a3304a746786457a8b07f84cbd69d7c6.jpg?shrink=500:500&_v=20261121162532",
+  "keyword": "선크림",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 32360,
+  "market": null,
+  "name": "닥터지 그린 마일드 업 선 플러스 50ml (3개)",
+  "offerCount": 89,
+  "offers": [],
+  "pcode": "11553623",
+  "seenAt": "2026-11-18T05:44:01+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "116197583": {
+  "addedAt": "2026-11-21T13:13:42+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/583/197/116/776262ad33bc41d0afe9620e3763ea97.jpg?shrink=500:500&_v=20261122033610",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 189600,
+  "market": null,
+  "name": "동서식품 카누 젠틀 스카이 10개입 (24개)",
+  "offerCount": 1,
+  "offers": [],
+  "pcode": "116197583",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "118130688": {
+  "addedAt": "2026-11-21T13:13:42+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/688/130/118/08970c8e9e654fda967d7399c3988f3d.jpg?shrink=500:500&_v=20261121080505",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-21T13:13:42+09:00",
+  "lowest": 126400,
+  "market": null,
+  "name": "동서식품 카누 젠틀 스카이 10개입 (16개)",
+  "offerCount": 1,
+  "offers": [],
+  "pcode": "118130688",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "120442804": {
+  "addedAt": "2026-11-21T13:13:42+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/804/442/120/70d0eb84c3104606bbe301a2448ab2c9.jpg?shrink=500:500&_v=20261121080522",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-21T13:13:42+09:00",
+  "lowest": 252800,
+  "market": null,
+  "name": "동서식품 카누 젠틀 스카이 10개입 (32개)",
+  "offerCount": 1,
+  "offers": [],
+  "pcode": "120442804",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "121136630": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/630/136/121/a75a33927f1b42ae9ec62f533025a283.png?shrink=500:500&_v=20261121080518",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 58300,
+  "market": null,
+  "name": "일리 클라시코 룽고 21개입 (3개)",
+  "offerCount": 2,
+  "offers": [],
+  "pcode": "121136630",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "12121985": {
+  "addedAt": "2026-11-19T10:24:57+09:00",
+  "cat": "kitchen",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/985/121/012/b8d89c00ae6b437586054afb83f6d85f.jpg?shrink=500:500&_v=20261121144520",
+  "keyword": "밀폐용기",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 10650,
+  "market": {
+   "average": 14080,
+   "basis": "total",
+   "bestMall": "오늘의집",
+   "bestPrice": 12100,
+   "bestShipping": "무료배송",
+   "malls": 10,
+   "othersAverage": 14300,
+   "rate": 15.4,
+   "secondPrice": 13650,
+   "since": "2026-11-21T21:56:02+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "락앤락 바로한끼 도자기 밥용기 250ml (2개)",
+  "offerCount": 125,
+  "offers": [
+   {
+    "fee": 3000,
+    "mall": "11번가",
+    "price": 10650,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "이마트몰",
+    "price": 10657,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "SK스토아",
+    "price": 10920,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "옥션",
+    "price": 11250,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "G마켓",
+    "price": 11250,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "롯데ON",
+    "price": 11280,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "패션플러스",
+    "price": 11640,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "SSG닷컴",
+    "price": 11904,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 0,
+    "mall": "오늘의집",
+    "price": 12100,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 3000,
+    "mall": "현대Hmall",
+    "price": 12110,
+    "shipping": "배송비 3,000원"
+   }
+  ],
+  "pcode": "12121985",
+  "seenAt": "2026-11-22T05:00:18+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "122668378": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/378/668/122/65a3789a43a64753a2624c9bd12a705c.jpg?shrink=500:500&_v=20261121080505",
+  "keyword": "생수 2L",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 22500,
+  "market": null,
+  "name": "농심 백산수 무라벨 2L (1개)",
+  "offerCount": 1,
+  "offers": [],
+  "pcode": "122668378",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "123650961": {
+  "addedAt": "2026-11-18T05:44:01+09:00",
+  "cat": "beauty",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/961/650/123/75b52025190649c78a24e86144c7d098.webp?shrink=500:500&_v=20261121080522",
+  "keyword": "선크림",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 50210,
+  "market": null,
+  "name": "헤라 UV프로텍터 톤업 피치 50ml (2개)",
+  "offerCount": 17,
+  "offers": [],
+  "pcode": "123650961",
+  "seenAt": "2026-11-21T02:11:01+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "123650963": {
+  "addedAt": "2026-11-18T05:44:01+09:00",
+  "cat": "beauty",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/963/650/123/a298e0e2afcb434fac70a052251486e6.jpeg?shrink=500:500&_v=20261121120212",
+  "keyword": "선크림",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 81000,
+  "market": null,
+  "name": "헤라 UV프로텍터 톤업 피치 50ml (3개)",
+  "offerCount": 7,
+  "offers": [],
+  "pcode": "123650963",
+  "seenAt": "2026-11-21T02:11:01+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "123650966": {
+  "addedAt": "2026-11-18T05:44:01+09:00",
+  "cat": "beauty",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/966/650/123/1d5f9d32bb6b4c419eff89065347201d.jpeg?shrink=500:500&_v=20261121134610",
+  "keyword": "선크림",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 107660,
+  "market": null,
+  "name": "헤라 UV프로텍터 톤업 피치 50ml (4개)",
+  "offerCount": 10,
+  "offers": [],
+  "pcode": "123650966",
+  "seenAt": "2026-11-21T02:11:01+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "123650968": {
+  "addedAt": "2026-11-18T05:44:01+09:00",
+  "cat": "beauty",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/968/650/123/9815f075f81f4ec0a38c031dd522fe94.jpeg?shrink=500:500&_v=20261121114913",
+  "keyword": "선크림",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 134570,
+  "market": null,
+  "name": "헤라 UV프로텍터 톤업 피치 50ml (5개)",
+  "offerCount": 6,
+  "offers": [],
+  "pcode": "123650968",
+  "seenAt": "2026-11-21T02:11:01+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "123668150": {
+  "addedAt": "2026-11-17T20:39:39+09:00",
+  "cat": "audio",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/150/668/123/27d2e73944084bb3824676d0ee5afabf.jpeg?shrink=500:500&_v=20261121163219",
+  "keyword": "블루투스 스피커",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 76000,
+  "market": null,
+  "name": "JBL GO 5 (해외구매)",
+  "offerCount": 124,
+  "offers": [],
+  "pcode": "123668150",
+  "seenAt": "2026-11-20T17:18:27+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "123722072": {
+  "addedAt": "2026-11-21T13:13:42+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/072/722/123/83d0ed64d0d64feca8b411a02ebec55b.webp?shrink=500:500&_v=20261121101312",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-21T13:13:42+09:00",
+  "lowest": 9310,
+  "market": {
+   "average": 9600,
+   "basis": "total",
+   "bestMall": "롯데ON",
+   "bestPrice": 9320,
+   "bestShipping": "무료배송",
+   "malls": 4,
+   "othersAverage": 9700,
+   "rate": 3.9,
+   "secondPrice": 9330,
+   "since": "2026-11-21T13:13:42+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "CJ제일제당 햇반 윤기가득쌀밥 210g (6개)",
+  "offerCount": 8,
+  "offers": [
+   {
+    "fee": 9310,
+    "mall": "우리집식탁매니저 네이버페이",
+    "price": 9310,
+    "shipping": "배송비 9,310원"
+   },
+   {
+    "fee": 0,
+    "mall": "롯데ON",
+    "price": 9320,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "옥션",
+    "price": 9330,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "G마켓",
+    "price": 9330,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "11번가",
+    "price": 10440,
+    "shipping": "무료배송"
+   }
+  ],
+  "pcode": "123722072",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "1238763": {
+  "addedAt": "2026-11-21T08:17:51+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/763/238/001/b137f9e07dc04ab68ba447574d71885f.jpg?shrink=500:500&_v=20261121080505",
+  "keyword": "라면",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 599,
+  "market": {
+   "average": 3740,
+   "basis": "total",
+   "bestMall": "G마켓",
+   "bestPrice": 3730,
+   "bestShipping": "배송비 3,000원",
+   "malls": 3,
+   "othersAverage": 3740,
+   "rate": 0.3,
+   "secondPrice": 3740,
+   "since": "2026-11-21T21:56:02+09:00",
+   "skippedOutliers": 2
+  },
+  "name": "농심 신라면 120g (1개)",
+  "offerCount": 42,
+  "offers": [
+   {
+    "fee": 599,
+    "mall": "에쓰디몰 네이버페이",
+    "price": 599,
+    "shipping": "배송비 599원"
+   },
+   {
+    "fee": 3000,
+    "mall": "G마켓",
+    "price": 730,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "옥션",
+    "price": 740,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "11번가",
+    "price": 750,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 2,
+    "mall": "롯데ON",
+    "price": 990,
+    "shipping": "배송비 2원"
+   }
+  ],
+  "pcode": "1238763",
+  "seenAt": "2026-11-21T08:17:51+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "124745072": {
+  "addedAt": "2026-11-19T10:24:57+09:00",
+  "cat": "kitchen",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/072/745/124/f0173168d6434d218aa5ad1857b6db62.png?shrink=500:500&_v=20261122041559",
+  "keyword": "밀폐용기",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 12270,
+  "market": {
+   "average": 15540,
+   "basis": "total",
+   "bestMall": "오늘의집",
+   "bestPrice": 13500,
+   "bestShipping": "무료배송",
+   "malls": 9,
+   "othersAverage": 15800,
+   "rate": 14.6,
+   "secondPrice": 13560,
+   "since": "2026-11-22T05:00:18+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "락앤락 바로한끼 도자기 밥용기 250ml (3개)",
+  "offerCount": 67,
+  "offers": [
+   {
+    "fee": 3000,
+    "mall": "롯데ON",
+    "price": 12270,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "옥션",
+    "price": 12870,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "G마켓",
+    "price": 12900,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "11번가",
+    "price": 13300,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "SSG닷컴",
+    "price": 13318,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 0,
+    "mall": "오늘의집",
+    "price": 13500,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "현대Hmall",
+    "price": 13560,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 3000,
+    "mall": "이마트몰",
+    "price": 13580,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 3000,
+    "mall": "CJ온스타일",
+    "price": 13590,
+    "shipping": "배송비 3,000원"
+   }
+  ],
+  "pcode": "124745072",
+  "seenAt": "2026-11-22T05:00:18+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "13057307": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/307/057/013/5321181a7c22418091017b17aeefbcac.jpg?shrink=500:500&_v=20261122033640",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 8700,
+  "market": null,
+  "name": "오뚜기 맛있는 오뚜기밥 흰밥 210g (5개)",
+  "offerCount": 26,
+  "offers": [],
+  "pcode": "13057307",
+  "seenAt": "2026-11-18T20:26:27+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "1648093": {
+  "addedAt": "2026-11-18T11:49:17+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/093/648/001/014eb90718b342e588df2099e6fc3d15.jpg?shrink=500:500&_v=20261121130205",
+  "keyword": "라면",
+  "lastChecked": "2026-11-21T13:13:42+09:00",
+  "lowest": 840,
+  "market": null,
+  "name": "백제 멸치맛 쌀국수 92g (1개)",
+  "offerCount": 99,
+  "offers": [],
+  "pcode": "1648093",
+  "seenAt": "2026-11-21T08:17:51+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "17587691": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/691/587/017/7d51dbd9a0e44c80bb3d7566cd883563.jpg?shrink=500:500&_v=20261122033636",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 35200,
+  "market": null,
+  "name": "일리 디카페인 (네스프레소 호환) 캡슐커피 10캡슐 (5팩)",
+  "offerCount": 43,
+  "offers": [],
+  "pcode": "17587691",
+  "seenAt": "2026-11-18T20:26:27+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "18297722": {
+  "addedAt": "2026-11-16T18:22:59+09:00",
+  "cat": "pc",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/722/297/018/86053af7566c43d8b3c56da85d1ac491.jpg?shrink=500:500&_v=20261121130111",
+  "keyword": "SSD",
+  "lastChecked": "2026-11-21T13:13:42+09:00",
+  "lowest": 778810,
+  "market": null,
+  "name": "삼성전자 990 PRO M.2 NVMe (2TB)",
+  "offerCount": 229,
+  "offers": [],
+  "pcode": "18297722",
+  "seenAt": "2026-11-20T03:34:50+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "25222838": {
+  "addedAt": "2026-11-17T11:51:31+09:00",
+  "cat": "audio",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/838/222/025/0b6b07ad8b5543e8916ec4907d4e3603.jpeg?shrink=500:500&_v=20261121114411",
+  "keyword": "노이즈캔슬링 헤드폰",
+  "lastChecked": "2026-11-21T13:13:42+09:00",
+  "lowest": 48540,
+  "market": null,
+  "name": "QCY H3 (해외구매)",
+  "offerCount": 25,
+  "offers": [],
+  "pcode": "25222838",
+  "seenAt": "2026-11-20T09:52:08+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "28131875": {
+  "addedAt": "2026-11-16T18:22:59+09:00",
+  "cat": "pc",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/875/131/028/0382f1e2261e45a99374ccdc14809019.jpg?shrink=500:500&_v=20261121130845",
+  "keyword": "SSD",
+  "lastChecked": "2026-11-21T13:13:42+09:00",
+  "lowest": 1295890,
+  "market": null,
+  "name": "삼성전자 990 PRO M.2 NVMe (4TB)",
+  "offerCount": 235,
+  "offers": [],
+  "pcode": "28131875",
+  "seenAt": "2026-11-20T03:34:50+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "3051112": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/112/051/003/c73d3772f71546998e97906278d25d7c.jpg?shrink=500:500&_v=20261122033557",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 4520,
+  "market": {
+   "average": 8120,
+   "basis": "total",
+   "bestMall": "옥션",
+   "bestPrice": 5081,
+   "bestShipping": "배송비 1원",
+   "malls": 9,
+   "othersAverage": 8500,
+   "rate": 40.2,
+   "secondPrice": 5081,
+   "since": "2026-11-21T08:17:51+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "오뚜기 맛있는 오뚜기밥 흰밥 210g (4개)",
+  "offerCount": 68,
+  "offers": [
+   {
+    "fee": 3500,
+    "mall": "11번가",
+    "price": 4520,
+    "shipping": "배송비 3,500원"
+   },
+   {
+    "fee": 3500,
+    "mall": "SK스토아",
+    "price": 4940,
+    "shipping": "배송비 3,500원"
+   },
+   {
+    "fee": 3500,
+    "mall": "SSG닷컴",
+    "price": 5073,
+    "shipping": "배송비 3,500원"
+   },
+   {
+    "fee": 3500,
+    "mall": "이마트몰",
+    "price": 5073,
+    "shipping": "배송비 3,500원"
+   },
+   {
+    "fee": 1,
+    "mall": "옥션",
+    "price": 5080,
+    "shipping": "배송비 1원"
+   },
+   {
+    "fee": 1,
+    "mall": "G마켓",
+    "price": 5080,
+    "shipping": "배송비 1원"
+   },
+   {
+    "fee": 3500,
+    "mall": "롯데ON",
+    "price": 5750,
+    "shipping": "배송비 3,500원"
+   },
+   {
+    "fee": 3000,
+    "mall": "오피스디포 공식스토어 네이버페이",
+    "price": 7160,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 0,
+    "mall": "주식회사 신세계라이브쇼핑",
+    "price": 9920,
+    "shipping": "무료배송"
+   }
+  ],
+  "pcode": "3051112",
+  "seenAt": "2026-11-18T20:26:27+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "3074391": {
+  "addedAt": "2026-11-18T11:49:17+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/391/074/003/d9099b36c60c4a0bb28b73ba6eefdbbc.jpg?shrink=500:500&_v=20261121203248",
+  "keyword": "라면",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 11250,
+  "market": null,
+  "name": "백제 멸치맛 쌀국수 92g (10개)",
+  "offerCount": 262,
+  "offers": [],
+  "pcode": "3074391",
+  "seenAt": "2026-11-18T11:49:17+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "32574590": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/590/574/032/c3171ee8be6649af9a638a30e1bee1f4.jpg?shrink=500:500&_v=20261122041522",
+  "keyword": "커피 캡슐",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 26320,
+  "market": null,
+  "name": "일리 디카페인 (네스프레소 호환) 캡슐커피 10캡슐 (4팩)",
+  "offerCount": 21,
+  "offers": [],
+  "pcode": "32574590",
+  "seenAt": "2026-11-18T20:26:27+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "32768294": {
+  "addedAt": "2026-11-18T11:49:17+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/294/768/032/e716bc75d51c40319f57092125404ab6.jpg?shrink=500:500&_v=20261121080506",
+  "keyword": "라면",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 6930,
+  "market": null,
+  "name": "백제 멸치맛 쌀국수 92g (4개)",
+  "offerCount": 4,
+  "offers": [],
+  "pcode": "32768294",
+  "seenAt": "2026-11-21T08:17:51+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "32812283": {
+  "addedAt": "2026-11-18T11:49:17+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/283/812/032/94dbc90a668b4b6683bc06c13d184824.jpg?shrink=500:500&_v=20261121080518",
+  "keyword": "라면",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 4260,
+  "market": null,
+  "name": "백제 멸치맛 쌀국수 92g (2개)",
+  "offerCount": 1,
+  "offers": [],
+  "pcode": "32812283",
+  "seenAt": "2026-11-21T08:17:51+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "32823746": {
+  "addedAt": "2026-11-18T20:26:27+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/746/823/032/40a186510c8546d5a6f57a2ddd050421.jpg?shrink=500:500&_v=20261122033557",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 6370,
+  "market": {
+   "average": 6730,
+   "basis": "total",
+   "bestMall": "옥션",
+   "bestPrice": 6370,
+   "bestShipping": "무료배송",
+   "malls": 6,
+   "othersAverage": 6800,
+   "rate": 6.3,
+   "secondPrice": 6380,
+   "since": "2026-11-22T05:00:18+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "오뚜기 맛있는 오뚜기밥 흰밥 210g (2개)",
+  "offerCount": 8,
+  "offers": [
+   {
+    "fee": 0,
+    "mall": "옥션",
+    "price": 6370,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "G마켓",
+    "price": 6380,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "주식회사 신세계라이브쇼핑",
+    "price": 6590,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "SK스토아",
+    "price": 6880,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "패션플러스",
+    "price": 7080,
+    "shipping": "무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "홈&쇼핑",
+    "price": 7080,
+    "shipping": "무료배송"
+   }
+  ],
+  "pcode": "32823746",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "60332315": {
+  "addedAt": "2026-11-18T11:49:17+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/315/332/060/d93ae41504864cff9f4492eb12a6fea8.jpg?shrink=500:500&_v=20261121080506",
+  "keyword": "라면",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 5810,
+  "market": {
+   "average": 7620,
+   "basis": "total",
+   "bestMall": "G마켓",
+   "bestPrice": 5810,
+   "bestShipping": "빠른배송 낮 5시 이전 주문 시 당일 발송하는 빠른 배송 상품 입니다. 무료배송",
+   "malls": 3,
+   "othersAverage": 8530,
+   "rate": 31.9,
+   "secondPrice": 6220,
+   "since": "2026-11-21T21:56:02+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "백제 멸치맛 쌀국수 92g (3개)",
+  "offerCount": 4,
+  "offers": [
+   {
+    "fee": 0,
+    "mall": "G마켓",
+    "price": 5810,
+    "shipping": "빠른배송 낮 5시 이전 주문 시 당일 발송하는 빠른 배송 상품 입니다. 무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "11번가",
+    "price": 6220,
+    "shipping": "빠른배송 일정 시간 안에 주문한 건에 한하여 당일 발송하는 빠른배송 상품입니다. 주문 시간에 따른 정확한 발송정보는 쇼핑몰 상품 상세페이지에서 꼭 확인해주세요. 무료배송"
+   },
+   {
+    "fee": 0,
+    "mall": "옥션",
+    "price": 10840,
+    "shipping": "무료배송"
+   }
+  ],
+  "pcode": "60332315",
+  "seenAt": "2026-11-21T08:17:51+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "74056484": {
+  "addedAt": "2026-11-16T18:22:59+09:00",
+  "cat": "pc",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/484/056/074/032a55236b8a4b25ae03a852d9811fff.jpg?shrink=500:500&_v=20261121193327",
+  "keyword": "SSD",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 577000,
+  "market": null,
+  "name": "키오시아 EXCERIA PLUS G4 M.2 NVMe (2TB)",
+  "offerCount": 201,
+  "offers": [],
+  "pcode": "74056484",
+  "seenAt": "2026-11-16T18:22:59+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "74254904": {
+  "addedAt": "2026-11-19T10:24:57+09:00",
+  "cat": "kitchen",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/904/254/074/d3c606543d384a4cb8a28f0ecc3d6c0f.jpg?shrink=500:500&_v=20261122043813",
+  "keyword": "밀폐용기",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 10870,
+  "market": null,
+  "name": "락앤락 바로한끼 내열유리 밥용기 Lite 320ml (3개)",
+  "offerCount": 109,
+  "offers": [],
+  "pcode": "74254904",
+  "seenAt": "2026-11-22T05:00:18+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "79402016": {
+  "addedAt": "2026-11-20T03:34:50+09:00",
+  "cat": "pc",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/016/402/079/89957dc36a7943c48286e820d8177a25.jpg?shrink=500:500&_v=20261122033602",
+  "keyword": "SSD",
+  "lastChecked": "2026-11-22T05:00:18+09:00",
+  "lowest": 500855,
+  "market": {
+   "average": 607900,
+   "basis": "total",
+   "bestMall": "롯데하이마트",
+   "bestPrice": 500855,
+   "bestShipping": "500,855 원",
+   "malls": 9,
+   "othersAverage": 621280,
+   "rate": 19.4,
+   "secondPrice": 508500,
+   "since": "2026-11-22T05:00:18+09:00",
+   "skippedOutliers": 0
+  },
+  "name": "ADATA LEGEND 900 M.2 NVMe 파인인포 (2TB)",
+  "offerCount": 92,
+  "offers": [
+   {
+    "fee": null,
+    "mall": "롯데하이마트",
+    "price": 500855,
+    "shipping": "500,855 원"
+   },
+   {
+    "fee": null,
+    "mall": "(주)파인인포 네이버페이",
+    "price": 508500,
+    "shipping": "508,500 원"
+   },
+   {
+    "fee": 3000,
+    "mall": "11번가",
+    "price": 601960,
+    "shipping": "배송비 3,000원"
+   },
+   {
+    "fee": 2500,
+    "mall": "주식회사 요테크",
+    "price": 618000,
+    "shipping": "배송비 2,500원"
+   },
+   {
+    "fee": 3,
+    "mall": "G마켓",
+    "price": 631230,
+    "shipping": "배송비 3원"
+   },
+   {
+    "fee": 4000,
+    "mall": "컴오아시스",
+    "price": 644380,
+    "shipping": "배송비 4,000원"
+   },
+   {
+    "fee": 2500,
+    "mall": "롯데ON",
+    "price": 645000,
+    "shipping": "배송비 2,500원"
+   },
+   {
+    "fee": 2,
+    "mall": "옥션",
+    "price": 645000,
+    "shipping": "배송비 2원"
+   },
+   {
+    "fee": 2,
+    "mall": "SSG닷컴",
+    "price": 664176,
+    "shipping": "배송비 2원"
+   }
+  ],
+  "pcode": "79402016",
+  "seenAt": "2026-11-20T03:34:50+09:00",
+  "strategy": "jsonld-aggregate+list-item"
+ },
+ "97188392": {
+  "addedAt": "2026-11-21T13:13:42+09:00",
+  "cat": "food",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/392/188/097/0c337e178ebe4509be88c8aeb074dc95.webp?shrink=500:500&_v=20261121131037",
+  "keyword": "즉석밥",
+  "lastChecked": "2026-11-21T13:13:42+09:00",
+  "lowest": 44940,
+  "market": null,
+  "name": "CJ제일제당 햇반 윤기가득쌀밥 210g (48개)",
+  "offerCount": 308,
+  "offers": [],
+  "pcode": "97188392",
+  "seenAt": "2026-11-21T13:13:42+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "98242472": {
+  "addedAt": "2026-11-16T18:22:59+09:00",
+  "cat": "pc",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/472/242/098/9d37153e57ca49d4b44a79722206d5ff.jpg?shrink=500:500&_v=20261121170023",
+  "keyword": "SSD",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 157000,
+  "market": null,
+  "name": "ESSENCORE KLEVV CRAS C910G M.2 NVMe (500GB)",
+  "offerCount": 68,
+  "offers": [],
+  "pcode": "98242472",
+  "seenAt": "2026-11-20T03:34:50+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "98242532": {
+  "addedAt": "2026-11-16T18:22:59+09:00",
+  "cat": "pc",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/532/242/098/0781a7764f374876af08fbda18c96fa2.jpg?shrink=500:500&_v=20261121202654",
+  "keyword": "SSD",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 442750,
+  "market": null,
+  "name": "ESSENCORE KLEVV CRAS C910G M.2 NVMe (2TB)",
+  "offerCount": 77,
+  "offers": [],
+  "pcode": "98242532",
+  "seenAt": "2026-11-20T03:34:50+09:00",
+  "strategy": "jsonld-aggregate"
+ },
+ "98242550": {
+  "addedAt": "2026-11-16T18:22:59+09:00",
+  "cat": "pc",
+  "fails": 0,
+  "from": "keyword",
+  "highest": null,
+  "image": "https://img.danuri.io/catalog-image/550/242/098/1ce26f7ba2644b72987b392059390883.jpg?shrink=500:500&_v=20261121150302",
+  "keyword": "SSD",
+  "lastChecked": "2026-11-21T21:56:02+09:00",
+  "lowest": 942660,
+  "market": null,
+  "name": "ESSENCORE KLEVV CRAS C910G M.2 NVMe (4TB)",
+  "offerCount": 68,
+  "offers": [],
+  "pcode": "98242550",
+  "seenAt": "2026-11-20T03:34:50+09:00",
+  "strategy": "jsonld-aggregate"
+ }
+}

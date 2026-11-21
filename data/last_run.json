@@ -1,0 +1,23 @@
+{
+ "at": "2026-11-22T05:00:18+09:00",
+ "danawa": "ok",
+ "keywordsRefreshed": 4,
+ "newPosts": 24,
+ "nomatch": 15,
+ "pages": 20,
+ "requests": 54,
+ "searches": 19,
+ "sources": {
+  "arcalive": "blocked",
+  "clien": "ok",
+  "coolenjoy": "unavailable",
+  "damoang": "ok",
+  "fmkorea": "robots",
+  "ppomppu": "ok",
+  "ppomppu_overseas": "off",
+  "quasarzone": "blocked",
+  "ruliweb": "ok"
+ },
+ "stoppedBy": null,
+ "verified": 0
+}
